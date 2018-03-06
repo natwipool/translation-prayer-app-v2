@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import TransPrayerListItem from './TransPrayerListItem';
+import Player from './Player';
 
 const TransPrayerList = (props) => (
   <div>
@@ -10,6 +11,7 @@ const TransPrayerList = (props) => (
         {...tranPrayer}
       />
     )}
+    <Player transPrayers={props.transPrayers}/>
   </div>
 );
 
