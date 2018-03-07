@@ -3,19 +3,42 @@ import { connect } from 'react-redux';
 import TransPrayerListItem from './TransPrayerListItem';
 import Player from './Player';
 
-const TransPrayerList = (props) => (
-  <div>
-    {props.transPrayers.map((tranPrayer, index) => 
-      <TransPrayerListItem 
-        key={index}
-        {...tranPrayer}
-      />
-    )}
-    <Player transPrayers={props.transPrayers}/>
-  </div>
-);
+class TransPrayerList extends React.Component {
+  constructor(props) {
+    super(props);
 
-const mapStateToProps = (state) => ({
+    this.state = {
+      index: 0
+    }
+  }
+  onPlay = (index) => {
+    this.setState(() => ({ index }))
+  }
+  render() {
+    return (
+      <div>
+        {this.props.transPrayers.map((tranPrayer, index) => (
+          <div key={index}>
+            <TransPrayerListItem {...tranPrayer} />
+            <button
+              onClick={() => {
+                this.onPlay(index);
+              }}
+            >
+              PLAY
+            </button>
+          </div>
+        ))}
+        <Player
+          index={this.state.index}
+          transPrayers={this.props.transPrayers}
+        />
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = state => ({
   transPrayers: state.transPrayers
 });
 

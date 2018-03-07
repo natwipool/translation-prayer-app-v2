@@ -1,16 +1,30 @@
 import React from 'react';
-import ReactAudioPlayer from 'react-audio-player';
+import ReactDOM from 'react-dom';
+import Audio from 'react-audioplayer';
+// import ReactAudioPlayer from 'react-audio-player';
 
-const Player = (props) => {
-  console.log(props)
-  return (
-    <div>
-      <ReactAudioPlayer
-        src={`/audio/${props.transPrayers[0].filename}`}
-        controls
+class Player extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      index: 0
+    }
+  }
+  
+  songs = this.props.transPrayers.map((transPrayer) => ({
+    name: transPrayer.precept,
+    src: `/audio/${transPrayer.filename}`
+  }))
+  
+  render() {
+    return (
+      <Audio
+        autoPlay={true}
+        playlist={this.songs}
       />
-    </div>
-  ) 
+    ) 
+  }
 }
 
 export default Player;
