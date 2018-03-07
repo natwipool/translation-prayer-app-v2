@@ -31,7 +31,7 @@ class TransPrayerList extends React.Component {
         ))}
         <Player
           index={this.state.index}
-          transPrayers={this.props.transPrayers}
+          playlists={this.props.transPrayers}
         />
       </div>
     );
