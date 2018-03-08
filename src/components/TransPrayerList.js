@@ -1,19 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { setIndex, setPlaying } from '../actions/players';
 import TransPrayerListItem from './TransPrayerListItem';
 import Player from './Player';
 
 class TransPrayerList extends React.Component {
   constructor(props) {
     super(props);
+  }
+  onPlayByIndex = (index) => {
+    this.props.dispatch(setIndex(index))
+    this.props.dispatch(setPlaying())
+  }
 
-    this.state = {
-      index: 0
-    }
-  }
-  onPlay = (index) => {
-    this.setState(() => ({ index }))
-  }
   render() {
     return (
       <div>
@@ -22,15 +21,14 @@ class TransPrayerList extends React.Component {
             <TransPrayerListItem {...tranPrayer} />
             <button
               onClick={() => {
-                this.onPlay(index);
+                this.onPlayByIndex(index);
               }}
             >
-              PLAY
+              {this.props.players.isPlaying && this.props.players.index === index ? 'PLAYING' : 'PLAY'}
             </button>
           </div>
         ))}
         <Player
-          index={this.state.index}
           playlists={this.props.transPrayers}
         />
       </div>
@@ -39,7 +37,8 @@ class TransPrayerList extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  transPrayers: state.transPrayers
+  transPrayers: state.transPrayers,
+  players: state.players
 });
 
 export default connect(mapStateToProps)(TransPrayerList);
