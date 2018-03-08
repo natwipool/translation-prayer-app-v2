@@ -5,9 +5,7 @@ import TransPrayerListItem from './TransPrayerListItem';
 import Player from './Player';
 
 class TransPrayerList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+
   onPlayByIndex = (index) => {
     this.props.dispatch(setIndex(index))
     this.props.dispatch(setPlaying())

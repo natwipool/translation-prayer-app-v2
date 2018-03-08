@@ -21,7 +21,7 @@ const Checkbox = (props) => {
         onChange={onCheckboxChange}
       />
       <label htmlFor={props.precept}>
-        {props.precept}{props.lists.indexOf(props.precept) > -1 && (
+        <b>{props.precept}</b> - {props.category} {props.lists.indexOf(props.precept) > -1 && (
           props.lists.indexOf(props.precept) + 1
         )}
       </label>

@@ -10,14 +10,11 @@ import {
 import formatTime from '../utils/formatTime';
 
 class Player extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      duration: undefined,
-      currentTime: undefined
-    };
-  }
+  
+  state = {
+    duration: undefined,
+    currentTime: undefined
+  };
 
   playlists = this.props.playlists.map(({ filename, precept }) => ({
     url: `/audio/${filename}`,

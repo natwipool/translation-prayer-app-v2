@@ -4,12 +4,18 @@ import PlaylistListItem from './PlaylistListItem';
 
 const PlaylistList = (props) => (
   <div> 
-    {props.playlists.map((playlist) => 
-      <PlaylistListItem 
-        key={playlist.id}
-        {...playlist}
-      />
-    )}
+    {
+      props.playlists.length === 0 ? (
+        <p>ไม่มีรายการสวดมนต์</p>
+      ) : (
+        props.playlists.map((playlist) => 
+          <PlaylistListItem 
+            key={playlist.id}
+            {...playlist}
+          />
+        )
+      )
+    }
   </div>
 )
 
