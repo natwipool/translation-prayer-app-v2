@@ -5,7 +5,8 @@ import {
   incrementIndex,
   decrementIndex,
   isPlayingToggle,
-  setPlaying
+  setPlaying,
+  setIndex
 } from '../actions/players';
 import formatTime from '../utils/formatTime';
 
@@ -21,6 +22,11 @@ class Player extends React.Component {
     precept
   }));
 
+  componentWillUnmount() {
+    this.props.dispatch(setIndex());
+    this.props.dispatch(setPlaying());
+  }
+
   onTogglePlaying = () => {
     this.props.dispatch(isPlayingToggle());
   };
@@ -34,8 +40,13 @@ class Player extends React.Component {
   };
 
   onEndedEvent = () => {
-    this.props.dispatch(incrementIndex());
-    this.props.dispatch(setPlaying());
+    if ((this.props.players.index + 1) === this.props.playlists.length) {
+      this.props.dispatch(setIndex());
+      this.props.dispatch(setPlaying());
+    } else {
+      this.props.dispatch(incrementIndex());
+      this.props.dispatch(setPlaying(true));
+    }
   };
 
   onProgress = state => {

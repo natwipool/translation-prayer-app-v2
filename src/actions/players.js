@@ -4,8 +4,9 @@ export const isPlayingToggle = () => ({
 });
 
 // SET_PLAYING
-export const setPlaying = () => ({
-  type: 'SET_PLAYING'
+export const setPlaying = (boolean = false) => ({
+  type: 'SET_PLAYING',
+  boolean
 });
 
 // INCREMENT_INDEX

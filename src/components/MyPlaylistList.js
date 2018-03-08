@@ -9,7 +9,7 @@ class MyPlaylistList extends React.Component {
 
   onPlayByIndex = (index) => {
     this.props.dispatch(setIndex(index))
-    this.props.dispatch(setPlaying())
+    this.props.dispatch(setPlaying(true))
   }
 
   render() {

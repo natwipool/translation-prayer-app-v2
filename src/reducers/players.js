@@ -13,7 +13,7 @@ export default (state = defaultStatePlayerReducer, action) => {
     case 'SET_PLAYING':
       return {
         ...state,
-        isPlaying: true
+        isPlaying: action.boolean
       }
     case 'INCREMENT_INDEX':
       return {
