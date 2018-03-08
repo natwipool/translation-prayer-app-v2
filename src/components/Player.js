@@ -8,7 +8,7 @@ import {
   setPlaying,
   setIndex
 } from '../actions/players';
-import formatTime from '../utils/formatTime';
+import formatTime from '../utils/format-time';
 
 class Player extends React.Component {
   

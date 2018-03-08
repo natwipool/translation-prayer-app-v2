@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { setIndex, setPlaying } from '../actions/players';
 import MyPlaylistListItem from './MyPlaylistListItem';
 import Player from './Player';
-import getPlaylistData from '../utils/getPlaylistData';
+import getPlaylistData from '../utils/get-playlist-data';
 
 class MyPlaylistList extends React.Component {
 

@@ -2,11 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import MyPlaylistList from './MyPlaylistList';
+import PlaylistSummary from './PlaylistSummary';
 import { removePlaylist } from '../actions/playlists';
 
 const MyPlaylistPage = (props) => (
   <div>
     <h1>{props.playlist.description}</h1>
+    <PlaylistSummary playlist={props.playlist}/>
     <Link to={`/edit/${props.playlist.id}`}>
       <button>แก้ไข</button>
     </Link>

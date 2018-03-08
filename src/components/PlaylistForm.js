@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Checkbox from './Checkbox';
+import PlaylistSummary from './PlaylistSummary';
 
 class PlaylistForm extends React.Component {
   constructor(props) {
@@ -56,6 +57,9 @@ class PlaylistForm extends React.Component {
             autoFocus
             value={this.state.description}
             onChange={this.onDescriptionChange}
+          />
+          <PlaylistSummary 
+            playlist={this.state}
           />
           {this.props.transPrayers.map((transPrayer, index) =>
             <Checkbox 
