@@ -4,6 +4,7 @@ const Checkbox = (props) => {
 
   const onCheckboxChange = (e) => {
     const list = e.target.value;
+    
     if (e.target.checked) {
       props.onAddLists(list)
     } else if (!e.target.checked) {

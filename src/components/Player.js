@@ -10,7 +10,7 @@ import {
 } from '../actions/players';
 import formatTime from '../utils/format-time';
 
-class Player extends React.Component {
+export class Player extends React.Component {
   
   state = {
     duration: undefined,
@@ -23,29 +23,29 @@ class Player extends React.Component {
   }));
 
   componentWillUnmount() {
-    this.props.dispatch(setIndex());
-    this.props.dispatch(setPlaying());
+    this.props.setIndex();
+    this.props.setPlaying();
   }
 
-  onTogglePlaying = () => {
-    this.props.dispatch(isPlayingToggle());
+  isPlayingToggle = () => {
+    this.props.isPlayingToggle();
   };
 
   onNextClick = () => {
-    this.props.dispatch(incrementIndex());
+    this.props.incrementIndex();
   };
 
   onPrevClick = () => {
-    this.props.dispatch(decrementIndex());
+    this.props.decrementIndex();
   };
 
   onEndedEvent = () => {
     if ((this.props.players.index + 1) === this.props.playlists.length) {
-      this.props.dispatch(setIndex());
-      this.props.dispatch(setPlaying());
+      this.props.setIndex();
+      this.props.setPlaying();
     } else {
-      this.props.dispatch(incrementIndex());
-      this.props.dispatch(setPlaying(true));
+      this.props.incrementIndex();
+      this.props.setPlaying(true);
     }
   };
 
@@ -91,7 +91,7 @@ class Player extends React.Component {
         >
           PREV
         </button>
-        <button onClick={this.onTogglePlaying}>
+        <button onClick={this.isPlayingToggle}>
           {this.props.players.isPlaying ? 'PAUSE' : 'PLAY'}
         </button>
         <button
@@ -109,4 +109,12 @@ const mapStateToProps = state => ({
   players: state.players
 });
 
-export default connect(mapStateToProps)(Player);
+const mapDispatchToProps = (dispatch, props) => ({
+  incrementIndex: () => dispatch(incrementIndex()),
+  decrementIndex: () => dispatch(decrementIndex()),
+  isPlayingToggle: () => dispatch(isPlayingToggle()),
+  setPlaying: () => dispatch(setPlaying()),
+  setIndex: (index) => dispatch(setIndex(index))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Player);

@@ -4,7 +4,7 @@ import getPlaylistData from '../utils/get-playlist-data';
 import durationTotal from '../utils/duration-total.js';
 import formatTime from '../utils/format-time';
 
-const PlaylistSummary = ({ preceptCount, durationTotal }) => {
+export const PlaylistSummary = ({ preceptCount, durationTotal }) => {
   const formattedTime = formatTime(durationTotal)
   return (
     <div>

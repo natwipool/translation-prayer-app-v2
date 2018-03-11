@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-const PlaylistListItem = (props) => (
+export const PlaylistListItem = ({ id, description }) => (
   <div>
-    <Link to={`/playlist/${props.id}`}>
-      <h3>{props.description}</h3>
+    <Link to={`/playlist/${id}`}>
+      <h3>{description}</h3>
     </Link>
   </div>
 )

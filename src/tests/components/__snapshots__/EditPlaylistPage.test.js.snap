@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render EditPlaylistPage correctly 1`] = `
+<div>
+  <h3>
+    แก้ไขรายการสวดมนต์
+  </h3>
+  <Connect(PlaylistForm)
+    onSubmit={[Function]}
+    playlist={
+      Object {
+        "description": "Playlist name one",
+        "id": "1",
+        "lists": Array [
+          "คำทำวัตรเช้า",
+          "ตังขณิกปัจจเวกขณปาฐะ",
+          "บทพิจารณาสังขาร",
+        ],
+      }
+    }
+  />
+</div>
+`;

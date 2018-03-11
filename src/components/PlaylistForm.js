@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Checkbox from './Checkbox';
 import PlaylistSummary from './PlaylistSummary';
 
-class PlaylistForm extends React.Component {
+export class PlaylistForm extends React.Component {
   constructor(props) {
     super(props)
 

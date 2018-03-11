@@ -1,7 +1,7 @@
 import uuid from 'uuid';
 
 // ADD_PLAYLIST,
-export const addPlaylist = ({ description = '', lists = [] }) => ({
+export const addPlaylist = ({ description = '', lists = [] } = {}) => ({
   type: 'ADD_PLAYLIST',
   playlist: {
     id: uuid(),

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render PlaylistSummary with mutiple playlist  1`] = `
+<div>
+  <p>
+    รวม 
+    27
+     บท, 
+    570:50
+     นาที
+  </p>
+</div>
+`;
+
+exports[`should render PlaylistSummary with one playlist 1`] = `
+<div>
+  <p>
+    รวม 
+    1
+     บท, 
+    3:20
+     นาที
+  </p>
+</div>
+`;

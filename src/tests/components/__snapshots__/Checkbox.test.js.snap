@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Checkbox correctly 1`] = `
+<div>
+  <input
+    id="เขมาเขมสรณคมนปริทีปิกาคาถา"
+    onChange={[Function]}
+    type="checkbox"
+    value="เขมาเขมสรณคมนปริทีปิกาคาถา"
+  />
+  <label
+    htmlFor="เขมาเขมสรณคมนปริทีปิกาคาถา"
+  >
+    <b>
+      เขมาเขมสรณคมนปริทีปิกาคาถา
+    </b>
+     - 
+    บทสวดมนต์ภาคเย็น
+     
+  </label>
+</div>
+`;

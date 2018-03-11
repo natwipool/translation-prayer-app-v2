@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PlaylistListItem from './PlaylistListItem';
 
-const PlaylistList = (props) => (
+export const PlaylistList = (props) => (
   <div> 
     {
       props.playlists.length === 0 ? (

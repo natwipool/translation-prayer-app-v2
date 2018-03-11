@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render MyPlaylistPage correctly 1`] = `
+<div>
+  <h1>
+    Playlist name one
+  </h1>
+  <Connect(PlaylistSummary)
+    playlist={
+      Object {
+        "description": "Playlist name one",
+        "id": "1",
+        "lists": Array [
+          "คำทำวัตรเช้า",
+          "ตังขณิกปัจจเวกขณปาฐะ",
+          "บทพิจารณาสังขาร",
+        ],
+      }
+    }
+  />
+  <Link
+    replace={false}
+    to="/edit/1"
+  >
+    <button>
+      แก้ไข
+    </button>
+  </Link>
+  <button
+    onClick={[Function]}
+  >
+    ลบ
+  </button>
+  <Connect(MyPlaylistList)
+    description="Playlist name one"
+    id="1"
+    lists={
+      Array [
+        "คำทำวัตรเช้า",
+        "ตังขณิกปัจจเวกขณปาฐะ",
+        "บทพิจารณาสังขาร",
+      ]
+    }
+  />
+</div>
+`;

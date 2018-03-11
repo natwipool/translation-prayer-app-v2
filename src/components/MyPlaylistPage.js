@@ -5,23 +5,34 @@ import MyPlaylistList from './MyPlaylistList';
 import PlaylistSummary from './PlaylistSummary';
 import { removePlaylist } from '../actions/playlists';
 
-const MyPlaylistPage = (props) => (
-  <div>
-    <h1>{props.playlist.description}</h1>
-    <PlaylistSummary playlist={props.playlist}/>
-    <Link to={`/edit/${props.playlist.id}`}>
-      <button>แก้ไข</button>
-    </Link>
-    <button onClick={() => {
-      props.dispatch(removePlaylist({ id: props.playlist.id}))
-      props.history.push('/playlists')
-    }}>ลบ</button>
-    <MyPlaylistList {...props.playlist}/>
-  </div>
-)
+export class MyPlaylistPage extends React.Component {
+  onRemove = () => {
+    this.props.removePlaylist({ id: this.props.playlist.id });
+    this.props.history.push('/playlists');
+  };
+  render() {
+    return (
+      <div>
+        <h1>{this.props.playlist.description}</h1>
+        <PlaylistSummary playlist={this.props.playlist} />
+        <Link to={`/edit/${this.props.playlist.id}`}>
+          <button>แก้ไข</button>
+        </Link>
+        <button onClick={this.onRemove}>ลบ</button>
+        <MyPlaylistList {...this.props.playlist} />
+      </div>
+    );
+  }
+}
 
 const mapStateToProps = (state, props) => ({
-  playlist: state.playlists.find((playlist) => playlist.id === props.match.params.id)
+  playlist: state.playlists.find(
+    playlist => playlist.id === props.match.params.id
+  )
 });
 
-export default connect(mapStateToProps)(MyPlaylistPage);
+const mapDispatchToProps = (dispatch, props) => ({
+  removePlaylist: id => dispatch(removePlaylist(id))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyPlaylistPage);

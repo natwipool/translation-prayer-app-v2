@@ -5,11 +5,11 @@ import MyPlaylistListItem from './MyPlaylistListItem';
 import Player from './Player';
 import getPlaylistData from '../utils/get-playlist-data';
 
-class MyPlaylistList extends React.Component {
+export class MyPlaylistList extends React.Component {
 
   onPlayByIndex = (index) => {
-    this.props.dispatch(setIndex(index))
-    this.props.dispatch(setPlaying(true))
+    this.props.setIndex(index)
+    this.props.setPlaying(true)
   }
 
   render() {
@@ -42,4 +42,9 @@ const mapStateToProps = (state, props) => ({
   players: state.players
 });
 
-export default connect(mapStateToProps)(MyPlaylistList);
+const mapDispatchToProps = (dispatch) => ({
+  setIndex: (index) => dispatch(setIndex(index)),
+  setPlaying: (boolean) => dispatch(setPlaying(boolean))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyPlaylistList);

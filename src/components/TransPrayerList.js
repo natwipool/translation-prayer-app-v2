@@ -4,12 +4,11 @@ import { setIndex, setPlaying } from '../actions/players';
 import TransPrayerListItem from './TransPrayerListItem';
 import Player from './Player';
 
-class TransPrayerList extends React.Component {
-
-  onPlayByIndex = (index) => {
-    this.props.dispatch(setIndex(index))
-    this.props.dispatch(setPlaying(true))
-  }
+export class TransPrayerList extends React.Component {
+  onPlayByIndex = index => {
+    this.props.setIndex(index);
+    this.props.setPlaying(true);
+  };
 
   render() {
     return (
@@ -22,13 +21,14 @@ class TransPrayerList extends React.Component {
                 this.onPlayByIndex(index);
               }}
             >
-              {this.props.players.isPlaying && this.props.players.index === index ? 'PLAYING' : 'PLAY'}
+              {this.props.players.isPlaying &&
+              this.props.players.index === index
+                ? 'PLAYING'
+                : 'PLAY'}
             </button>
           </div>
         ))}
-        <Player
-          playlists={this.props.transPrayers}
-        />
+        <Player playlists={this.props.transPrayers} />
       </div>
     );
   }
@@ -39,4 +39,9 @@ const mapStateToProps = state => ({
   players: state.players
 });
 
-export default connect(mapStateToProps)(TransPrayerList);
+const mapDiapatchToProps = (dispatch, props) => ({
+  setIndex: (index) => dispatch(setIndex(index)),
+  setPlaying: (boolean) => dispatch(setPlaying(boolean))
+});
+
+export default connect(mapStateToProps, mapDiapatchToProps)(TransPrayerList);
