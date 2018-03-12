@@ -41,7 +41,6 @@ export class Player extends React.Component {
   };
 
   onEndedEvent = () => {
-    this.setState(() => ({ isReady: false }));
     if ((this.props.players.index + 1) === this.props.playlists.length) {
       this.props.setIndex();
       this.props.setPlaying();
@@ -53,6 +52,10 @@ export class Player extends React.Component {
 
   onReady = () => {
     this.setState(() => ({ isReady: true }));
+  }
+
+  onBuffer = () => {
+    this.setState(() => ({ isReady: false }));
   }
 
   onProgress = state => {
@@ -91,6 +94,7 @@ export class Player extends React.Component {
           onProgress={this.onProgress}
           onDuration={this.onDuration}
           onReady={this.onReady}
+          onBuffer={this.onBuffer}
           width="100%"
           height="100%"
         />
