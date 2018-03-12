@@ -37,3 +37,28 @@ export const removePlaylist = ({ id } = {}) => ({
   type: 'REMOVE_PLAYLIST',
   id
 });
+
+// SET_PLAYLISTS
+export const setPlaylists = (playlists) => ({
+  type: 'SET_PLAYLISTS',
+  playlists
+});
+
+export const startSetPlaylists = () => {
+  return (dispatch) => {
+    return database.ref('playlists')
+      .once('value')
+      .then((snapshot) => {
+        const playlists = [];
+
+        snapshot.forEach((childSnapshot) => {
+          playlists.push({
+            id: childSnapshot.key,
+            ...childSnapshot.val()
+          });
+        });
+
+        dispatch(setPlaylists(playlists));
+      });
+  };
+};

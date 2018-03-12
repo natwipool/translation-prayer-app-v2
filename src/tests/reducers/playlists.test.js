@@ -58,3 +58,12 @@ test('should not edit a playlist if id not found', () => {
   const state = playlistsReducer(playlists, action);
   expect(state).toEqual(playlists);
 });
+
+test('should set playlists', () => {
+  const action = {
+    type: 'SET_PLAYLISTS',
+    playlists: [playlists[1]]
+  };
+  const state = playlistsReducer(playlists, action);
+  expect(state).toEqual([playlists[1]]);
+});

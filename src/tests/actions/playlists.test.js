@@ -1,10 +1,25 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { startAddPlaylist, addPlaylist, editPlaylist, removePlaylist } from '../../actions/playlists';
+import {
+  startAddPlaylist,
+  addPlaylist,
+  editPlaylist,
+  removePlaylist,
+  setPlaylists,
+  startSetPlaylists
+} from '../../actions/playlists';
 import playlists from '../fixtures/playlists';
 import database from '../../firebase/firebase';
 
 const createMockStore = configureMockStore([thunk]);
+
+beforeEach((done) => {
+  const playlistData = {};
+  playlists.forEach(({ id, description, lists }) => {
+    playlistData[id] = { description, lists }
+  });
+  database.ref('playlists').set(playlistData).then(() => done());
+});
 
 test('should setup remove playlist action object', () => {
   const action = removePlaylist({ id: '123abc' });
@@ -82,4 +97,24 @@ test('should add playlist with defaults to database and store', (done) => {
     expect(snapshot.val()).toEqual({ description: '' });
     done();
   });  
+});
+
+test('should setup set playlists action object with data', () => {
+  const action = setPlaylists(playlists);
+  expect(action).toEqual({
+    type: 'SET_PLAYLISTS',
+    playlists
+  });
+});
+
+test('should fetch the playlists from firebase', (done) => {
+  const store = createMockStore({});
+  store.dispatch(startSetPlaylists()).then(() => {
+    const actions = store.getActions();
+    expect(actions[0]).toEqual({
+      type: 'SET_PLAYLISTS',
+      playlists
+    });
+    done();
+  });
 });

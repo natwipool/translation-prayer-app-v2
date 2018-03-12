@@ -3,6 +3,8 @@ export default (state = [], action) => {
   switch (action.type) {
     case 'ADD_PLAYLIST':
       return [...state, action.playlist]
+    case 'SET_PLAYLISTS':
+      return action.playlists
     case 'REMOVE_PLAYLIST':
       return state.filter(({ id }) =>
         id !== action.id
