@@ -24,8 +24,15 @@ export class Player extends React.Component {
   }));
 
   componentWillUnmount() {
+    this.setState(() => ({ isReady: false }));
     this.props.setIndex();
     this.props.setPlaying();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(this.props.players.index !== nextProps.players.index) {
+      this.setState(() => ({ isReady: false }));
+    }
   }
 
   isPlayingToggle = () => {
@@ -54,10 +61,6 @@ export class Player extends React.Component {
     this.setState(() => ({ isReady: true }));
   }
 
-  onBuffer = () => {
-    this.setState(() => ({ isReady: false }));
-  }
-
   onProgress = state => {
     this.setState(() => ({ currentTime: state.playedSeconds }));
   };
@@ -80,11 +83,13 @@ export class Player extends React.Component {
         )}
         <p>
           {'Status: '}
-          {this.state.currentTime !== undefined
+          {this.state.currentTime !== undefined && this.state.isReady
             ? formatTime(this.state.currentTime)
             : '0.00'}
           {' / '}
-          {this.state.duration ? formatTime(this.state.duration) : '0.00'}
+          {this.state.duration && this.state.isReady
+            ? formatTime(this.state.duration)
+            : '0.00'}
         </p>
         <ReactPlayer
           ref={this.ref}
@@ -94,7 +99,6 @@ export class Player extends React.Component {
           onProgress={this.onProgress}
           onDuration={this.onDuration}
           onReady={this.onReady}
-          onBuffer={this.onBuffer}
           width="100%"
           height="100%"
         />
