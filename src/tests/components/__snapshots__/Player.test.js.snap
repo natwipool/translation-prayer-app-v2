@@ -3,7 +3,7 @@
 exports[`should render Player correctly 1`] = `
 <div>
   <h3>
-    เขมาเขมสรณคมนปริทีปิกาคาถา
+    Loading...
   </h3>
   <p>
     Status: 

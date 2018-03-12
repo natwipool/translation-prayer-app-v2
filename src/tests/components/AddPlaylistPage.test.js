@@ -3,13 +3,13 @@ import { shallow } from 'enzyme';
 import { AddPlaylistPage } from '../../components/AddPlaylistPage';
 import playlists from '../fixtures/playlists';
 
-let addPlaylist, history, wrapper;
+let startAddPlaylist, history, wrapper;
 
 beforeEach(() => {
-  addPlaylist = jest.fn();
+  startAddPlaylist = jest.fn();
   history = { push: jest.fn() };
   wrapper = shallow(<AddPlaylistPage
-    addPlaylist={addPlaylist}
+    startAddPlaylist={startAddPlaylist}
     history={history}
   />);
 });
@@ -21,5 +21,5 @@ test('should render AddPlaylistPage correctly', () => {
 test('should handle onSubmit correctly', () => {
   wrapper.find('Connect(PlaylistForm)').prop('onSubmit')(playlists[2]);
   expect(history.push).toHaveBeenLastCalledWith('/playlists');
-  expect(addPlaylist).toHaveBeenLastCalledWith(playlists[2]);
+  expect(startAddPlaylist).toHaveBeenLastCalledWith(playlists[2]);
 });

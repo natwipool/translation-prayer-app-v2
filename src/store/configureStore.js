@@ -1,7 +1,10 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import transPrayersReducer from '../reducers/transPrayers';
 import playlistsReducer from '../reducers/playlists';
 import playerReducer from '../reducers/players';
+import thunk from 'redux-thunk';
+
+const composeEnhancers = window.__REDUX__DEVTOOLS__EXTENSION__COMPOSE__ || compose;
 
 export default () => {
   const store = createStore(
@@ -10,7 +13,7 @@ export default () => {
       playlists: playlistsReducer,
       players: playerReducer
     }),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    composeEnhancers(applyMiddleware(thunk))
   );
 
   return store;

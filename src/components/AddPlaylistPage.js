@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PlaylistForm from './PlaylistForm';
-import { addPlaylist } from '../actions/playlists';
+import { startAddPlaylist, addPlaylist } from '../actions/playlists';
 
 export class AddPlaylistPage extends React.Component {
   onSubmit = playlist => {
-    this.props.addPlaylist(playlist);
+    this.props.startAddPlaylist(playlist);
     this.props.history.push('/playlists');
   };
   render() {
@@ -19,7 +19,7 @@ export class AddPlaylistPage extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  addPlaylist: playlist => dispatch(addPlaylist(playlist))
+  startAddPlaylist: playlist => dispatch(startAddPlaylist(playlist))
 });
 
 export default connect(undefined, mapDispatchToProps)(AddPlaylistPage);

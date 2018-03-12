@@ -7,6 +7,7 @@ import { setTransPrayers } from './actions/transPrayers';
 import transPrayersData from './data/transPrayersData';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
+import './firebase/firebase';
 
 const store = configureStore();
 
