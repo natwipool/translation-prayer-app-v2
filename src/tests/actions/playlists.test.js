@@ -4,6 +4,7 @@ import {
   startAddPlaylist,
   addPlaylist,
   editPlaylist,
+  startEditPlaylist,
   removePlaylist,
   startRemovePlaylist,
   setPlaylists,
@@ -57,6 +58,24 @@ test('should setup edit playlist action object', () => {
     type: 'EDIT_PLAYLIST',
     id: '123abc',
     updates: { ...updates }
+  });
+});
+
+test('should edit playlist from firebase', (done) => {
+  const store = createMockStore({});
+  const id = playlists[0].id;
+  const updates = { description: 'updated desc', lists: ['aaa', 'bbb']}
+  store.dispatch(startEditPlaylist(id, updates)).then(() => {
+    const actions = store.getActions();
+    expect(actions[0]).toEqual({
+      type: 'EDIT_PLAYLIST',
+      id,
+      updates
+    });
+    return database.ref(`playlists/${id}`).once('value');
+  }).then((snapshot) => {
+    expect(snapshot.val()).toEqual(updates);
+    done();
   });
 });
 

@@ -32,6 +32,16 @@ export const editPlaylist = (id, updates) => ({
   updates
 });
 
+export const startEditPlaylist = (id, updates) => {
+  return (dispatch) => {
+    return database.ref(`playlists/${id}`)
+      .update(updates)
+      .then(() => {
+        dispatch(editPlaylist(id, updates))
+      });
+  };
+};
+
 // REMOVE_PLAYLIST
 export const removePlaylist = ({ id } = {}) => ({
   type: 'REMOVE_PLAYLIST',
