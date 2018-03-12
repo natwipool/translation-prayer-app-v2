@@ -14,7 +14,8 @@ export class Player extends React.Component {
   
   state = {
     duration: undefined,
-    currentTime: undefined
+    currentTime: undefined,
+    isReady: false
   };
 
   playlists = this.props.playlists.map(({ filename, precept }) => ({
@@ -49,6 +50,10 @@ export class Player extends React.Component {
     }
   };
 
+  onReady = () => {
+    this.setState(() => ({ isReady: true }))
+  }
+
   onProgress = state => {
     this.setState(() => ({ currentTime: state.playedSeconds }));
   };
@@ -64,8 +69,10 @@ export class Player extends React.Component {
   render() {
     return (
       <div>
-        {this.playlists && (
+        {this.playlists && this.state.isReady ? (
           <h3>{this.playlists[this.props.players.index].precept}</h3>
+        ) : (
+          <h3>Loading...</h3>
         )}
         <p>
           {'Status: '}
@@ -82,6 +89,7 @@ export class Player extends React.Component {
           onEnded={this.onEndedEvent}
           onProgress={this.onProgress}
           onDuration={this.onDuration}
+          onReady={this.onReady}
           width="100%"
           height="100%"
         />
