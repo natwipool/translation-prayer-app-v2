@@ -38,6 +38,16 @@ export const removePlaylist = ({ id } = {}) => ({
   id
 });
 
+export const startRemovePlaylist = ({ id } = {}) => {
+  return (dispatch) => {
+    return database.ref(`playlists/${id}`)
+      .remove()
+      .then(() => {
+        dispatch(removePlaylist({ id }));
+      });
+  };
+};
+
 // SET_PLAYLISTS
 export const setPlaylists = (playlists) => ({
   type: 'SET_PLAYLISTS',

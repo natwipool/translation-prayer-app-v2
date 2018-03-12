@@ -5,6 +5,7 @@ import {
   addPlaylist,
   editPlaylist,
   removePlaylist,
+  startRemovePlaylist,
   setPlaylists,
   startSetPlaylists
 } from '../../actions/playlists';
@@ -26,6 +27,22 @@ test('should setup remove playlist action object', () => {
   expect(action).toEqual({
     type: 'REMOVE_PLAYLIST',
     id: '123abc'
+  });
+});
+
+test('should remove playlists from firebase', (done) => {
+  const store = createMockStore({});
+  const id = playlists[2].id;
+  store.dispatch(startRemovePlaylist({ id })).then(() => {
+    const actions = store.getActions();
+    expect(actions[0]).toEqual({
+      type: 'REMOVE_PLAYLIST',
+      id
+    });
+    return database.ref(`playlists/${id}`).once('value');
+  }).then((snapshot) => {
+    expect(snapshot.val()).toBeFalsy();
+    done();
   });
 });
 

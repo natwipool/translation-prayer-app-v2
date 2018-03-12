@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import MyPlaylistList from './MyPlaylistList';
 import PlaylistSummary from './PlaylistSummary';
-import { removePlaylist } from '../actions/playlists';
+import { startRemovePlaylist } from '../actions/playlists';
 
 export class MyPlaylistPage extends React.Component {
   onRemove = () => {
-    this.props.removePlaylist({ id: this.props.playlist.id });
+    this.props.startRemovePlaylist({ id: this.props.playlist.id });
     this.props.history.push('/playlists');
   };
   render() {
@@ -32,7 +32,7 @@ const mapStateToProps = (state, props) => ({
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
-  removePlaylist: id => dispatch(removePlaylist(id))
+  startRemovePlaylist: id => dispatch(startRemovePlaylist(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyPlaylistPage);
