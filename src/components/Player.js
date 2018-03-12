@@ -41,6 +41,7 @@ export class Player extends React.Component {
   };
 
   onEndedEvent = () => {
+    this.setState(() => ({ isReady: false }));
     if ((this.props.players.index + 1) === this.props.playlists.length) {
       this.props.setIndex();
       this.props.setPlaying();
@@ -51,7 +52,7 @@ export class Player extends React.Component {
   };
 
   onReady = () => {
-    this.setState(() => ({ isReady: true }))
+    this.setState(() => ({ isReady: true }));
   }
 
   onProgress = state => {
