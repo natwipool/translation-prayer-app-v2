@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { setIndex, setPlaying } from '../actions/players';
 import TransPrayerListItem from './TransPrayerListItem';
 import Player from './Player';
+import LyricsPage from './LyricsPage';
 
 export class TransPrayerList extends React.Component {
   onPlayByIndex = index => {
@@ -13,6 +14,12 @@ export class TransPrayerList extends React.Component {
   render() {
     return (
       <div>
+        {this.props.players.isPlaying && (
+          <LyricsPage
+            playlists={this.props.transPrayers}
+            index={this.props.players.index}
+          />
+        )}
         {this.props.transPrayers.map((tranPrayer, index) => (
           <div key={index}>
             <TransPrayerListItem {...tranPrayer} />
@@ -40,8 +47,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDiapatchToProps = (dispatch, props) => ({
-  setIndex: (index) => dispatch(setIndex(index)),
-  setPlaying: (boolean) => dispatch(setPlaying(boolean))
+  setIndex: index => dispatch(setIndex(index)),
+  setPlaying: boolean => dispatch(setPlaying(boolean))
 });
 
 export default connect(mapStateToProps, mapDiapatchToProps)(TransPrayerList);
