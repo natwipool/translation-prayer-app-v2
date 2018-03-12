@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render LyricsList correctly 1`] = `
+<div>
+  <LyricsListItem
+    key="0"
+    lyric="abc"
+  />
+  <LyricsListItem
+    key="1"
+    lyric="dfg"
+  />
+</div>
+`;

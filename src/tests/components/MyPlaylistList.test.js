@@ -18,7 +18,7 @@ beforeEach(() => {
   />);
 });
 
-test('should render MyPlaylistList with playlists', () => {
+test('should render MyPlaylistList correctly', () => {
   expect(wrapper).toMatchSnapshot();
 });
 

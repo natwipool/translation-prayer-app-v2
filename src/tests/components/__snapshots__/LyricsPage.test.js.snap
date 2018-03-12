@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render LyricsPage correctly 1`] = `
+<div>
+  <LyricsList
+    playlist={
+      Object {
+        "category": "บทสวดมนต์ภาคเย็น",
+        "duration": 155.99425,
+        "filename": "11_เขมาเขมสรณคมนปริทีปิกาคาถา.mp3",
+        "id": "11",
+        "lyrics": Array [
+          "abc",
+          "dfg",
+        ],
+        "precept": "เขมาเขมสรณคมนปริทีปิกาคาถา",
+      }
+    }
+  />
+</div>
+`;
