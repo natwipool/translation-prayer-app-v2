@@ -2,9 +2,6 @@
 
 exports[`should render PlaylistDashboardPage correctly 1`] = `
 <div>
-  <h1>
-    รายการสวดมนต์
-  </h1>
   <Link
     replace={false}
     to="/create"

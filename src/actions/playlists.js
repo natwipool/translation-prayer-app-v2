@@ -8,14 +8,15 @@ export const addPlaylist = (playlist) => ({
 });
 
 export const startAddPlaylist = (playlistData = {}) => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     const {
       description = '',
       lists = [] 
     } = playlistData;
     const playlist = { description, lists }
 
-    return database.ref('playlists').push(playlist)
+    return database.ref(`users/${uid}/playlists`).push(playlist)
       .then((ref) => {
         dispatch(addPlaylist({
           id: ref.key,
@@ -33,8 +34,10 @@ export const editPlaylist = (id, updates) => ({
 });
 
 export const startEditPlaylist = (id, updates) => {
-  return (dispatch) => {
-    return database.ref(`playlists/${id}`)
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+
+    return database.ref(`users/${uid}/playlists/${id}`)
       .update(updates)
       .then(() => {
         dispatch(editPlaylist(id, updates))
@@ -49,8 +52,10 @@ export const removePlaylist = ({ id } = {}) => ({
 });
 
 export const startRemovePlaylist = ({ id } = {}) => {
-  return (dispatch) => {
-    return database.ref(`playlists/${id}`)
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+
+    return database.ref(`users/${uid}/playlists/${id}`)
       .remove()
       .then(() => {
         dispatch(removePlaylist({ id }));
@@ -65,8 +70,10 @@ export const setPlaylists = (playlists) => ({
 });
 
 export const startSetPlaylists = () => {
-  return (dispatch) => {
-    return database.ref('playlists')
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    
+    return database.ref(`users/${uid}/playlists`)
       .once('value')
       .then((snapshot) => {
         const playlists = [];

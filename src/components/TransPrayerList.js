@@ -6,6 +6,7 @@ import Player from './Player';
 import LyricsPage from './LyricsPage';
 
 export class TransPrayerList extends React.Component {
+
   onPlayByIndex = index => {
     this.props.setIndex(index);
     this.props.setPlaying(true);

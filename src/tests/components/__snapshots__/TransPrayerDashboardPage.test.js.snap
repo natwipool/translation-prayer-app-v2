@@ -2,9 +2,6 @@
 
 exports[`should render TransPrayerDashboardPage correctly 1`] = `
 <div>
-  <h1>
-    สารบัญ
-  </h1>
   <Connect(TransPrayerList) />
 </div>
 `;
