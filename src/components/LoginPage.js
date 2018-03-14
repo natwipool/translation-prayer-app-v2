@@ -8,9 +8,10 @@ export const LoginPage = ({ startLoginWithGoogle, startLoginWithFacebook }) => (
     <div className="box-layout__box">
       <h1 className="box-layout__tittle">สวดมนต์แปล</h1>
       <p>
-        พวกเรามาสวดมนต์กันเถอะ พวกเรามาสวดมนต์กันเถอะ
-        พวกเรามาสวดมนต์กันเถอะ พวกเรามาสวดมนต์กันเถอะ
-        พวกเรามาสวดมนต์กันเถอะ พวกเรามาสวดมนต์กันเถอะ
+        การสวดมนต์มีอานิสงค์มากมาย ดีต่อใจดีต่อกาย
+        วันนี้ท่านสวดมนต์รึยัง?
+        เรามาสวดมนต์กันเถอะ
+        
       </p>
       <GoogleLoginButton text="เข้าสู่ระบบด้วย Google" onClick={startLoginWithGoogle} />
       <FacebookLoginButton text="เข้าสู่ระบบด้วย Facebook" onClick={startLoginWithFacebook} />

@@ -9,8 +9,9 @@
 }
 
 .box-layout__box {
-  background: fade-out( #FFF, .15);
+  background: fade-out( #FFF, .20);
   border-radius: 3px;
+  margin: $m-size $m-size;
   padding: $s-size $m-size;
   text-align: center;
   width: 35rem;

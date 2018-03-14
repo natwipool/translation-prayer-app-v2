@@ -1,33 +1,32 @@
 import React from 'react';
 
-const Checkbox = (props) => {
-
-  const onCheckboxChange = (e) => {
+const Checkbox = props => {
+  const onCheckboxChange = e => {
     const list = e.target.value;
-    
+
     if (e.target.checked) {
-      props.onAddLists(list)
+      props.onAddLists(list);
     } else if (!e.target.checked) {
-      props.onRemoveLists(list)
+      props.onRemoveLists(list);
     }
-  }
+  };
 
   return (
     <div>
-      <input 
+      <input
         type="checkbox"
         id={props.precept}
-        checked={props.lists.find((list) => list === props.precept)}
+        checked={props.lists.find(list => list === props.precept)}
         value={props.precept}
         onChange={onCheckboxChange}
       />
       <label htmlFor={props.precept}>
-        <b>{props.precept}</b> - {props.category} {props.lists.indexOf(props.precept) > -1 && (
-          props.lists.indexOf(props.precept) + 1
-        )}
+        <b>{props.precept}</b> - {props.category}{' '}
+        {props.lists.indexOf(props.precept) > -1 &&
+          props.lists.indexOf(props.precept) + 1}
       </label>
     </div>
-  )
-}
+  );
+};
 
 export default Checkbox;
