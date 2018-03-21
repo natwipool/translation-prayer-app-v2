@@ -19,7 +19,7 @@ export class Player extends React.Component {
   };
 
   playlists = this.props.playlists.map(({ filename, precept }) => ({
-    url: `/audio/${filename}`,
+    mp3: `https://s3-ap-southeast-1.amazonaws.com/transprayer/mp3/${filename}.mp3`,
     precept
   }));
 
@@ -94,7 +94,7 @@ export class Player extends React.Component {
         <ReactPlayer
           ref={this.ref}
           playing={this.props.players.isPlaying}
-          url={this.playlists[this.props.players.index].url}
+          url={this.playlists[this.props.players.index].mp3}
           onEnded={this.onEndedEvent}
           onProgress={this.onProgress}
           onDuration={this.onDuration}
