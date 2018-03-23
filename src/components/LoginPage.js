@@ -1,23 +1,36 @@
 import React from 'react';
+import Modal from 'react-modal';
 import { connect } from 'react-redux';
 import { GoogleLoginButton, FacebookLoginButton } from 'react-social-login-buttons';
 import { startLoginWithGoogle, startLoginWithFacebook } from '../actions/auth';
 
-export const LoginPage = ({ startLoginWithGoogle, startLoginWithFacebook }) => (
-  <div className="box-layout">
-    <div className="box-layout__box">
-      <h1 className="box-layout__tittle">สวดมนต์แปล</h1>
-      <p>
-        การสวดมนต์มีอานิสงค์มากมาย ดีต่อใจดีต่อกาย
-        วันนี้ท่านสวดมนต์รึยัง?
-        เรามาสวดมนต์กันเถอะ
-        
-      </p>
-      <GoogleLoginButton text="เข้าสู่ระบบด้วย Google" onClick={startLoginWithGoogle} />
-      <FacebookLoginButton text="เข้าสู่ระบบด้วย Facebook" onClick={startLoginWithFacebook} />
-    </div>
-  </div>
-);
+class LoginPage extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isModalOpen: true
+    }
+  }
+  closeModalHandle = () => {
+    this.setState(() => ({ isModalOpen: false }))
+  }
+
+  render() {
+    return (
+      <Modal
+        isOpen={this.state.isModalOpen}
+        onRequestClose={this.closeModalHandle}
+        contentLabel="Login"
+        ariaHideApp={false}
+      >
+        <GoogleLoginButton text="Google" onClick={this.props.startLoginWithGoogle} />
+        <FacebookLoginButton text="Facebook" onClick={this.props.startLoginWithFacebook} />
+        <button onClick={this.closeModalHandle}>ปิด</button>
+      </Modal>
+    )
+  }
+}
 
 const mapDispatchToProps = (dispatch) => ({
   startLoginWithGoogle: () => dispatch(startLoginWithGoogle()),

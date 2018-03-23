@@ -1,0 +1,19 @@
+.header {
+  background: $off-gold;
+}
+
+.header__title {
+  color: $dark-grey;
+  text-decoration: none;
+  h1 {
+    margin: 0;
+  }
+}
+
+.menu {
+  text-decoration: none;
+}
+
+.is-active {
+  font-weight: 700;
+}

@@ -39,8 +39,9 @@ firebase.auth().onAuthStateChanged(user => {
     
     store.dispatch(startSetPlaylists()).then(() => {
       renderApp();
-      if (history.location.pathname === '/') {
-        history.push('/trans-prayers');
+  
+      if (history.location.pathname === '/login') {
+        history.push('/');
       }
     });
   } else {
