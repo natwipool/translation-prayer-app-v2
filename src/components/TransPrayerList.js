@@ -14,15 +14,16 @@ export class TransPrayerList extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="content-container-body">
         {this.props.players.isPlaying && (
           <LyricsPage
             playlists={this.props.transPrayers}
             index={this.props.players.index}
           />
         )}
+        <div className="list-header"></div>
         {this.props.transPrayers.map((tranPrayer, index) => (
-          <div key={index}>
+          <div key={index} className="list-item">
             <TransPrayerListItem {...tranPrayer} />
             <button
               onClick={() => {

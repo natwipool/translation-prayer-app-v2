@@ -1,0 +1,56 @@
+div.page-header {
+  margin-top: 0;
+  padding: $m-size;
+  @media(max-width: 768px) {
+    padding: $xs-size;
+  }
+}
+
+.page-header {
+  background: $off-gold;
+  margin-bottom: $l-size; 
+}
+
+.page-header__title {
+  font-size: 2.4rem;
+  margin-top: 10px;
+  margin-left: $m-size;
+  color: $dark-grey;
+  @media(max-width: 768px) {
+    font-size: 2rem;
+    margin-left: 0;
+  }
+}
+
+.page-header__message {
+  font-size: 2.4rem;
+  margin-top: 10px;
+  margin-left: $m-size;
+  color: $grey;
+  @media(max-width: 768px) {
+    font-size: 2rem;
+    margin-left: 0;
+  }
+}
+
+.page-header__summary {
+  font-size: 1.5rem;
+  font-style: italic;
+  margin-left: $m-size;
+  color: $grey;
+  span {
+    font-weight: bold;
+    color: darken($grey, 10%);
+  }
+  @media(max-width: 768px) {
+    margin-left: 0;
+    font-size: 1.45rem;
+  }
+}
+
+.page-header button {
+  margin-left: $m-size;
+  @media(max-width: 768px) {
+    margin-left: 0;
+  }
+}

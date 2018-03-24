@@ -14,15 +14,16 @@ export class MyPlaylistList extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="content-container-body">
         {this.props.players.isPlaying && (
           <LyricsPage
             playlists={this.props.playlists}
             index={this.props.players.index}
           />
         )}
+        <div className="list-header"></div>
         {this.props.playlists.map((playlist, index) => (
-          <div key={index}>
+          <div key={index} className="list-item">
             <MyPlaylistListItem {...playlist} />
             <button
               onClick={() => {

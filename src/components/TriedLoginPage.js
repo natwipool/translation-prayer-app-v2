@@ -5,22 +5,29 @@ import LoginPage from '../components/LoginPage';
 import { handleShowModal } from '../actions/modal';
 
 export const TriedLoginPage = ({ loginModal, handleShowModal }) => (
-  <div className="content-container">
-    <h4>กรุณาเข้าระบบก่อนใช้งาน รายกายสวดมนต์ของฉัน</h4>
-    <Button
-      bsStyle="success"
-      onClick={() => {
-        handleShowModal(true);
-      }}
-    >
-      เข้าสู่ระบบ
-    </Button>
-    <LoginPage
-      showLoginModal={!!loginModal.showModal}
-      handleHideLoginModal={() => {
-        handleShowModal();
-      }}
-    />
+  <div>
+    <div className="page-header">
+      <div className="content-container-body">
+        <h2 className="page-header__title">บทสวดมนต์ของฉัน</h2>
+      </div>
+    </div>
+    <div className="content-container-body">
+      <p>กรุณาเข้าระบบก่อนใช้งาน บทสวดมนต์ของฉัน</p>
+      <Button
+        bsStyle="success"
+        onClick={() => {
+          handleShowModal(true);
+        }}
+      >
+        เข้าสู่ระบบ
+      </Button>
+      <LoginPage
+        showLoginModal={!!loginModal.showModal}
+        handleHideLoginModal={() => {
+          handleShowModal();
+        }}
+      />
+    </div>
   </div>
 );
 

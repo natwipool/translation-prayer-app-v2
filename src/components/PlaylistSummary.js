@@ -8,7 +8,9 @@ export const PlaylistSummary = ({ preceptCount, durationTotal }) => {
   const formattedTime = formatTime(durationTotal)
   return (
     <div>
-      <p>รวม {preceptCount} บท, {formattedTime} นาที</p>
+      <p className="page-header__summary">
+        บทสวดมนต์ <span>{preceptCount}</span> บท, เวลา <span>{formattedTime}</span> นาที
+      </p>
     </div>
   )
 }

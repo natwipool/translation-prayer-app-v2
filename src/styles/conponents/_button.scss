@@ -1,0 +1,38 @@
+.button {
+  background: $blue;
+  border: none;
+  border-radius: 2px;
+  font-weight: 300;
+  padding: .4rem $s-size;
+}
+
+.button a {
+  color: white;
+  &:hover {
+    color: $off-grey;
+    text-decoration: none;
+  }
+}
+
+.button--secondary {
+  background: $blue;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  font-weight: 300;
+  padding: .4rem $s-size;
+  &:hover {
+    color: $off-grey;
+  }
+  @media(max-width: 768px) {
+    margin-right: $s-size;
+  }
+}
+
+.button-delete {
+  background: #d9534f;
+}
+
+.close-button {
+  margin-top: 16px;
+}

@@ -2,4 +2,22 @@
   margin: 0 auto;
   padding: 0 $m-size;
   max-width: 100rem;
+  @media(max-width: 768px) {
+    padding: 0;
+  }
 }
+
+.content-container-body {
+  margin: 0 auto;
+  padding: 0 $m-size;
+  max-width: 75rem;
+  @media(min-width: 995px) {
+    max-width: 100rem;
+    padding: 0 $l-size;
+  }
+  @media(min-width: 1200px) {
+    max-width: 100rem;
+    padding: 0 $m-size;
+  }
+}
+

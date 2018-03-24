@@ -32,8 +32,9 @@ export const Header = props => (
           <Nav pullRight>
             <NavItem>
               {!props.isAuthenticated ? (
-                <Button
+                <Button 
                   bsStyle="success"
+                  bsSize="xsmall"
                   onClick={() => {
                     props.handleShowModal(true);
                   }}
@@ -41,7 +42,11 @@ export const Header = props => (
                   เข้าสู่ระบบ
                 </Button>
               ) : (
-                <Button bsStyle="danger" onClick={props.startLogout}>
+                <Button 
+                  bsStyle="danger"
+                  bsSize="xsmall"
+                  onClick={props.startLogout}
+                >
                   ออกจากระบบ
                 </Button>
               )}
