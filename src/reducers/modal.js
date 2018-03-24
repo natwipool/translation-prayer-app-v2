@@ -1,11 +1,9 @@
 export default (state = {}, action) => {
   switch (action.type) {
-    case 'LOGIN':
+    case 'SHOW_MODAL':
       return {
-        uid: action.uid
+        showModal: action.showModal
       }
-    case 'LOGOUT':
-      return {};
     default:
       return state
   }

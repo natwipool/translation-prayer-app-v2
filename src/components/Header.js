@@ -1,57 +1,72 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link, NavLink, Redirect } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { Navbar, Nav, NavItem, Button } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
+import LoginPage from '../components/LoginPage';
 import { startLogout } from '../actions/auth';
+import { handleShowModal } from '../actions/modal';
 
-class Header extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      showLoginModal: false
-    };
-  }
-
-  onShowLoginModal = () => {
-    this.setState(() => ({ showLoginModal: true }));
-  }
-
-  render() {
-    return  (
-      <div>
-        <header className="header">
-          <div className="content-container">
-            <Link className="header__title" to="/">
-              <h1>หนังสือเสียง สวดมนต์แปล</h1>
-              <p>ฉบับวัดหนองป่าพง</p>
-            </Link>
-            {!this.props.isAuthenticated ?(
-              <button onClick={this.onShowLoginModal}>Login</button>
-            ) : (
-              <button onClick={this.props.startLogout}>Logout</button>
-            )}
-            {this.state.showLoginModal && <Redirect to="/login" />}
-          </div>
-        </header>
-        <nav className="menu">
-          <div className="content-container">
-            <NavLink to="/" activeClassName="is-active" exact={true}>หน้าแรก</NavLink>
-            <NavLink to="/trans-prayers" activeClassName="is-active">สารบัญ</NavLink>
-            <NavLink to="/playlists" activeClassName="is-active">รายการ</NavLink>
-            <NavLink to="/about" activeClassName="is-active">เกี่ยวกับ</NavLink>
-          </div>
-        </nav>
+export const Header = props => (
+  <header>
+    <Navbar default collapseOnSelect>
+      <div className="content-container">
+        <Navbar.Header>
+          <Navbar.Brand>
+            <Link to="/">สวดมนต์แปล</Link>
+          </Navbar.Brand>
+          <Navbar.Toggle />
+        </Navbar.Header>
+        <Navbar.Collapse>
+          <Nav>
+            <LinkContainer to="/trans-prayers">
+              <NavItem>สารบัญ</NavItem>
+            </LinkContainer>
+            <LinkContainer to="/playlists">
+              <NavItem>บทสวดมนต์ของฉัน</NavItem>
+            </LinkContainer>
+            <LinkContainer to="/about">
+              <NavItem>เกี่ยวกับ</NavItem>
+            </LinkContainer>
+          </Nav>
+          <Nav pullRight>
+            <NavItem>
+              {!props.isAuthenticated ? (
+                <Button
+                  bsStyle="success"
+                  onClick={() => {
+                    props.handleShowModal(true);
+                  }}
+                >
+                  เข้าสู่ระบบ
+                </Button>
+              ) : (
+                <Button bsStyle="danger" onClick={props.startLogout}>
+                  ออกจากระบบ
+                </Button>
+              )}
+            </NavItem>
+          </Nav>
+        </Navbar.Collapse>
       </div>
-    )
-  }
-}
+    </Navbar>
+    <LoginPage
+      showLoginModal={!!props.loginModal.showModal}
+      handleHideLoginModal={() => {
+        props.handleShowModal();
+      }}
+    />
+  </header>
+);
 
-const mapStateToProps = (state) => ({
-  isAuthenticated: !!state.auth.uid
+const mapStateToProps = state => ({
+  isAuthenticated: !!state.auth.uid,
+  loginModal: state.modal
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  startLogout: () => dispatch(startLogout())
+const mapDispatchToProps = dispatch => ({
+  startLogout: () => dispatch(startLogout()),
+  handleShowModal: isShow => dispatch(handleShowModal(isShow))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

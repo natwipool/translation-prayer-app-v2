@@ -2,8 +2,13 @@ import React from 'react';
 import  { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 import Header from '../components/Header';
+import LoginPage from '../components/LoginPage';
+import TriedLoginPage from '../components/TriedLoginPage';
+import { handleShowModal } from '../actions/modal';
 
 export const PrivateRoute = ({
+  loginModal,
+  handleShowModal,
   isAuthenticated,
   component: Component,
   ...rest
@@ -15,13 +20,21 @@ export const PrivateRoute = ({
         <Component {...props}/>
       </div>
     ) : (
-      <Redirect to="/login" />
+      <div>
+        <Header />
+        <TriedLoginPage />
+      </div>
     )
   )} />
 );
 
 const mapStateToProps = (state) => ({
-  isAuthenticated: !!state.auth.uid
+  isAuthenticated: !!state.auth.uid,
+  loginModal: state.modal
 });
 
-export default connect(mapStateToProps)(PrivateRoute);
+const mapDispatchToProps = dispatch => ({
+  handleShowModal: (isShow) => dispatch(handleShowModal(isShow))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PrivateRoute);

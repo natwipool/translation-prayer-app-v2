@@ -4,33 +4,20 @@ import { connect } from 'react-redux';
 import { GoogleLoginButton, FacebookLoginButton } from 'react-social-login-buttons';
 import { startLoginWithGoogle, startLoginWithFacebook } from '../actions/auth';
 
-class LoginPage extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isModalOpen: true
-    }
-  }
-  closeModalHandle = () => {
-    this.setState(() => ({ isModalOpen: false }))
-  }
-
-  render() {
-    return (
-      <Modal
-        isOpen={this.state.isModalOpen}
-        onRequestClose={this.closeModalHandle}
-        contentLabel="Login"
-        ariaHideApp={false}
-      >
-        <GoogleLoginButton text="Google" onClick={this.props.startLoginWithGoogle} />
-        <FacebookLoginButton text="Facebook" onClick={this.props.startLoginWithFacebook} />
-        <button onClick={this.closeModalHandle}>ปิด</button>
-      </Modal>
-    )
-  }
-}
+export const LoginPage = (props) => (
+  <Modal
+    isOpen={!!props.showLoginModal}
+    onRequestClose={props.handleHideLoginModal}
+    contentLabel="เข้าสู่ระบบ"
+    contentLabel="Login"
+    ariaHideApp={false}
+  >
+    <h3>เข้าสู่ระบบ</h3>
+    <GoogleLoginButton text="Google" onClick={props.startLoginWithGoogle} />
+    <FacebookLoginButton text="Facebook" onClick={props.startLoginWithFacebook} />
+    <button onClick={props.handleHideLoginModal}>ปิด</button>
+  </Modal>
+);
 
 const mapDispatchToProps = (dispatch) => ({
   startLoginWithGoogle: () => dispatch(startLoginWithGoogle()),
