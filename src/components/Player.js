@@ -111,7 +111,7 @@ export class Player extends React.Component {
         </button>
         </div>
         {this.playlists && this.state.isReady ? (
-          <h3 className="player-title">{this.playlists[this.props.players.index].precept}</h3>
+          <h3 className="player-title move-text">{this.playlists[this.props.players.index].precept}</h3>
         ) : (
           <h3 className="player-title">Loading...</h3>
         )}

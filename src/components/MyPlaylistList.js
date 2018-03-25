@@ -14,7 +14,7 @@ export class MyPlaylistList extends React.Component {
 
   render() {
     return (
-      <div className="content-container-body">
+      <div className="content-container-body content-container-player">
         {this.props.players.isPlaying && (
           <LyricsPage
             playlists={this.props.playlists}
