@@ -2,10 +2,66 @@
 
 exports[`should render MyPlaylistPage correctly 1`] = `
 <div>
-  <h1>
-    Playlist name one
-  </h1>
-  <Connect(PlaylistSummary)
+  <div
+    className="page-header"
+  >
+    <div
+      className="content-container-body"
+    >
+      <h2
+        className="page-header__title"
+      >
+        Playlist name one
+      </h2>
+      <Connect(PlaylistSummary)
+        playlist={
+          Object {
+            "description": "Playlist name one",
+            "id": "1",
+            "lists": Array [
+              "คำทำวัตรเช้า",
+              "ตังขณิกปัจจเวกขณปาฐะ",
+              "บทพิจารณาสังขาร",
+            ],
+          }
+        }
+      />
+      <Link
+        replace={false}
+        to="/edit/1"
+      >
+        <button
+          className="button--secondary edit-button"
+        >
+          แก้ไข
+        </button>
+      </Link>
+      <button
+        className="button--secondary del-button"
+        onClick={[Function]}
+      >
+        ลบ
+      </button>
+    </div>
+  </div>
+  <Connect(MyPlaylistList)
+    description="Playlist name one"
+    id="1"
+    lists={
+      Array [
+        "คำทำวัตรเช้า",
+        "ตังขณิกปัจจเวกขณปาฐะ",
+        "บทพิจารณาสังขาร",
+      ]
+    }
+  />
+  <Connect(ConfirmModal)
+    handleCloseModal={[Function]}
+    history={
+      Object {
+        "push": [MockFunction],
+      }
+    }
     playlist={
       Object {
         "description": "Playlist name one",
@@ -17,30 +73,7 @@ exports[`should render MyPlaylistPage correctly 1`] = `
         ],
       }
     }
-  />
-  <Link
-    replace={false}
-    to="/edit/1"
-  >
-    <button>
-      แก้ไข
-    </button>
-  </Link>
-  <button
-    onClick={[Function]}
-  >
-    ลบ
-  </button>
-  <Connect(MyPlaylistList)
-    description="Playlist name one"
-    id="1"
-    lists={
-      Array [
-        "คำทำวัตรเช้า",
-        "ตังขณิกปัจจเวกขณปาฐะ",
-        "บทพิจารณาสังขาร",
-      ]
-    }
+    showConfirmModal={false}
   />
 </div>
 `;

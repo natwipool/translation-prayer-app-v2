@@ -6,23 +6,15 @@ import playlists from '../fixtures/playlists';
 let startRemovePlaylist, history, wrapper;
 
 beforeEach(() => {
-  startRemovePlaylist = jest.fn();
+  // startRemovePlaylist = jest.fn();
   history = { push: jest.fn() };
   wrapper = shallow(<MyPlaylistPage
-    startRemovePlaylist={startRemovePlaylist}
-    history={history}
+    // startRemovePlaylist={startRemovePlaylist}
     playlist={playlists[0]}
+    history={history}
   />);
 });
 
 test('should render MyPlaylistPage correctly', () => {
   expect(wrapper).toMatchSnapshot();
-});
-
-test('should handle onRemove correctly', () => {
-  wrapper.find('button').at(1).simulate('click');
-  expect(history.push).toHaveBeenLastCalledWith('/playlists');
-  expect(startRemovePlaylist).toHaveBeenLastCalledWith({
-    id: playlists[0].id
-  });
 });

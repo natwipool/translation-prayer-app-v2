@@ -1,8 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render MyPlaylistList correctly 1`] = `
-<div>
+<div
+  className="content-container-body content-container-player"
+>
   <div
+    className="list-header"
+  />
+  <div
+    className="list-item"
     key="0"
   >
     <MyPlaylistListItem
@@ -19,12 +25,16 @@ exports[`should render MyPlaylistList correctly 1`] = `
       precept="เขมาเขมสรณคมนปริทีปิกาคาถา"
     />
     <button
+      className="music-button"
       onClick={[Function]}
     >
-      PLAY
+      <img
+        src="/images/play.png"
+      />
     </button>
   </div>
   <div
+    className="list-item"
     key="1"
   >
     <MyPlaylistListItem
@@ -41,12 +51,16 @@ exports[`should render MyPlaylistList correctly 1`] = `
       precept="อริยธนคาถา"
     />
     <button
+      className="music-button"
       onClick={[Function]}
     >
-      PLAY
+      <img
+        src="/images/play.png"
+      />
     </button>
   </div>
   <div
+    className="list-item"
     key="2"
   >
     <MyPlaylistListItem
@@ -63,9 +77,12 @@ exports[`should render MyPlaylistList correctly 1`] = `
       precept="ติลักขณาทิคาถา"
     />
     <button
+      className="music-button"
       onClick={[Function]}
     >
-      PLAY
+      <img
+        src="/images/play.png"
+      />
     </button>
   </div>
   <Connect(Player)

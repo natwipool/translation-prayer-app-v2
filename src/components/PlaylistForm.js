@@ -44,6 +44,7 @@ export class PlaylistForm extends React.Component {
       });
     }
   };
+
   render() {
     return (
       <form className="form" onSubmit={this.onSubmit}>

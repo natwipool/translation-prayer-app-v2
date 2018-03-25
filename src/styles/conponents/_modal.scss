@@ -27,8 +27,24 @@
   outline: none;
   padding: $l-size $l-size $s-size $l-size;
   text-align: center;
+  word-break: break-all;
 }
 
 .modal__title {
   margin: 0 0 $m-size 0;
+}
+
+.modal-confirm__title {
+  margin: 0 0 $m-size 0;
+  font-size: 1.8rem;
+}
+
+.confirm-modal-content {
+  padding-bottom: $m-size;
+  text-align: center;
+}
+
+.confirm-modal-group-button {
+  margin-top: $l-size;
+  padding-left: $s-size;
 }

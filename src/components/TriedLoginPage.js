@@ -13,17 +13,16 @@ export const TriedLoginPage = ({ loginModal, handleShowModal }) => (
     <div className="content-container-body">
       <div className="text-container">
         <p>กรุณาเข้าระบบก่อนใช้งาน บทสวดมนต์ของฉัน</p>
-        </div>
-        <button
-        
-          className="button"
-          onClick={() => {
-            handleShowModal(true);
-          }}
-        >
-          เข้าสู่ระบบ
-        </button>
-      
+      </div>
+      <button
+        className="button"
+        onClick={() => {
+          handleShowModal(true);
+        }}
+      >
+        เข้าสู่ระบบ
+      </button>
+
       <LoginPage
         showLoginModal={!!loginModal.showModal}
         handleHideLoginModal={() => {
