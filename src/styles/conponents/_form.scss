@@ -1,0 +1,61 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  > div {
+    margin-bottom: -1rem;
+  }  
+}
+
+input[type=text] {
+  margin-bottom: $xs-size;
+  font-size: 1.8rem;
+  line-height: $l-size;
+  padding-left: .4rem;
+}
+
+.form .page-header__summary {
+  margin-bottom: $m-size;
+}
+
+.form__error {
+  margin: 0 0 $m-size 0;
+  font-style: italic;
+  color: $red;
+}
+
+.checkbox input{
+  display: none;
+}
+
+.checkbox span {
+  width: 24px;
+  height: 24px;
+  display: block;
+  margin-right: $s-size;
+  background: url('/images/unchecked.png');
+  margin-bottom: 0;
+}
+
+.checkbox input:checked + div span {
+  background: url('/images/checked.png');
+}
+
+.checkbox-content {
+  display: flex;
+}
+
+.checkbox-content__title {
+  font-size: 1.7rem;
+  font-weight: 300;
+}
+
+.checkbox-content__number {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: $blue;
+  margin-left: $m-size;
+}
+
+.form-button {
+  margin: $m-size 0;
+}   

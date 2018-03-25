@@ -11,8 +11,17 @@ export class EditPlaylistPage extends React.Component {
   render() {
     return (
       <div>
-        <h3>แก้ไขรายการสวดมนต์</h3>
-        <PlaylistForm playlist={this.props.playlist} onSubmit={this.onSubmit} />
+        <div className="page-header">
+          <div className="content-container-body">
+            <h3 className="page-header__title">แก้ไขรายการสวดมนต์</h3>
+          </div>
+        </div>
+        <div className="content-container-body">
+          <PlaylistForm
+            playlist={this.props.playlist}
+            onSubmit={this.onSubmit}
+          />
+        </div>
       </div>
     );
   }

@@ -7,7 +7,7 @@ div.page-header {
 }
 
 .page-header {
-  background: $off-gold;
+  background: $off-white;
   margin-bottom: $l-size; 
 }
 
@@ -40,7 +40,7 @@ div.page-header {
   color: $grey;
   span {
     font-weight: bold;
-    color: darken($grey, 10%);
+    color: $blue;
   }
   @media(max-width: 768px) {
     margin-left: 0;

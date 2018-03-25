@@ -26,18 +26,21 @@ export class TransPrayerList extends React.Component {
           <div key={index} className="list-item">
             <TransPrayerListItem {...tranPrayer} />
             <button
+              className="music-button"
               onClick={() => {
                 this.onPlayByIndex(index);
               }}
             >
               {this.props.players.isPlaying &&
               this.props.players.index === index
-                ? 'PLAYING'
-                : 'PLAY'}
+                ? <img src="/images/sound-bars.png" />
+                : <img src="/images/play.png" />}
             </button>
+            <Player playlists={this.props.transPrayers} />
           </div>
         ))}
-        <Player playlists={this.props.transPrayers} />
+        
+        
       </div>
     );
   }

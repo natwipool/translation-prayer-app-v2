@@ -7,8 +7,8 @@ const PlaylistDashboardPage = () => (
     <div className="page-header">
       <div className="content-container-body">
         <h2 className="page-header__title">บทสวดมนต์ของฉัน</h2>
-        <button className="button">
-          <Link to="/create">+ สร้างรายการ</Link>
+        <button className="button--secondary">
+          <Link to="/create">+ เพิ่มรายการ</Link>
         </button>
       </div>
     </div>

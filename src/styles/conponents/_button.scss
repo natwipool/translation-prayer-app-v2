@@ -1,12 +1,58 @@
 .button {
-  background: $blue;
+  background: $green;
+  color: white;
   border: none;
-  border-radius: 2px;
   font-weight: 300;
+  padding: .6rem $s-size;
+  &:hover {
+    color: $off-grey;
+  }
+}
+
+.header-button {
+  padding: .2rem $xs-size;
+  font-size: 1.4rem;
+}
+
+.logout-button {
+  background: $red;
+}
+
+.social-button {
+  margin-bottom: $m-size;
+  background: #446DB0;
+  padding: $xs-size $s-size;
+  font-size: $m-size;
+  border: none;
+  font-weight: 500;
+  width: 100%;
+}
+
+.google {
+  background: #DB4437;
+}
+
+.fackbook {
+  background: #446DB0;
+}
+
+.button-delete {
+  background: $red;
+}
+
+.button-link {
+  background: none;
+  font-size: 1.4rem;
+  color: $off-grey;
+}
+
+.button--secondary {
+  background: $green;
+  border: none;
   padding: .4rem $s-size;
 }
 
-.button a {
+.button--secondary > a {
   color: white;
   &:hover {
     color: $off-grey;
@@ -14,25 +60,25 @@
   }
 }
 
-.button--secondary {
+.edit-button {
   background: $blue;
   color: white;
-  border: none;
-  border-radius: 2px;
-  font-weight: 300;
-  padding: .4rem $s-size;
+  margin-right: $s-size;
   &:hover {
     color: $off-grey;
   }
-  @media(max-width: 768px) {
-    margin-right: $s-size;
+}
+
+.del-button {
+  background: $red;
+  color: white;
+  &:hover {
+    color: $off-grey;
   }
 }
 
-.button-delete {
-  background: #d9534f;
-}
-
-.close-button {
-  margin-top: 16px;
+.music-button {
+  background: none;
+  border: none;
+  padding: 0 3px;
 }

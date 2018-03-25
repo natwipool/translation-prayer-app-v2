@@ -18,12 +18,14 @@
 }
 
 .Modal {
-  background: $off-gold;
-  border: 1px solid darken($off-gold, 7%);
-  color: $dark-grey;
+  background:  lighten(#222, 7%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
   max-width: 30rem;
   outline: none;
-  padding: $l-size;
+  padding: $l-size $l-size $s-size $l-size;
   text-align: center;
 }
 

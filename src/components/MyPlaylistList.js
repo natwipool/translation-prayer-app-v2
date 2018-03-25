@@ -26,14 +26,15 @@ export class MyPlaylistList extends React.Component {
           <div key={index} className="list-item">
             <MyPlaylistListItem {...playlist} />
             <button
+              className="music-button"
               onClick={() => {
                 this.onPlayByIndex(index);
               }}
             >
               {this.props.players.isPlaying &&
               this.props.players.index === index
-                ? 'PLAYING'
-                : 'PLAY'}
+                ? <img src="/images/sound-bars.png" />
+                : <img src="/images/play.png" />}
             </button>
           </div>
         ))}

@@ -18,9 +18,9 @@ export class MyPlaylistPage extends React.Component {
             <h2 className="page-header__title">{this.props.playlist.description}</h2>
             <PlaylistSummary playlist={this.props.playlist} />
             <Link to={`/edit/${this.props.playlist.id}`}>
-              <button className="button--secondary">แก้ไข</button>
+              <button className="button--secondary edit-button">แก้ไข</button>
             </Link>
-            <button className="button--secondary button-delete" onClick={this.onRemove}>ลบ</button>
+            <button className="button--secondary del-button" onClick={this.onRemove}>ลบ</button>
           </div>
         </div>
         <MyPlaylistList {...this.props.playlist} />

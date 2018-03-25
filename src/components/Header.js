@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
-import { Navbar, Nav, NavItem, Button } from 'react-bootstrap';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import LoginPage from '../components/LoginPage';
 import { startLogout } from '../actions/auth';
@@ -9,7 +9,7 @@ import { handleShowModal } from '../actions/modal';
 
 export const Header = props => (
   <header>
-    <Navbar default collapseOnSelect>
+    <Navbar inverse collapseOnSelect>
       <div className="content-container">
         <Navbar.Header>
           <Navbar.Brand>
@@ -32,23 +32,21 @@ export const Header = props => (
           <Nav pullRight>
             <NavItem>
               {!props.isAuthenticated ? (
-                <Button 
-                  bsStyle="success"
-                  bsSize="xsmall"
+                <button 
+                  className="button header-button"
                   onClick={() => {
                     props.handleShowModal(true);
                   }}
                 >
                   เข้าสู่ระบบ
-                </Button>
+                </button>
               ) : (
-                <Button 
-                  bsStyle="danger"
-                  bsSize="xsmall"
+                <button 
+                  className="button header-button logout-button"
                   onClick={props.startLogout}
                 >
                   ออกจากระบบ
-                </Button>
+                </button>
               )}
             </NavItem>
           </Nav>

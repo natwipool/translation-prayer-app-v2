@@ -1,8 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
-import { GoogleLoginButton, FacebookLoginButton } from 'react-social-login-buttons';
-import { Button } from 'react-bootstrap';
 import { startLoginWithGoogle, startLoginWithFacebook } from '../actions/auth';
 
 export const LoginPage = (props) => (
@@ -15,9 +13,13 @@ export const LoginPage = (props) => (
     className="Modal"
   >
     <h3 className="modal__title">เข้าสู่ระบบด้วย</h3>
-    <GoogleLoginButton text="Google" onClick={props.startLoginWithGoogle} />
-    <FacebookLoginButton text="Facebook" onClick={props.startLoginWithFacebook} />
-    <Button className="close-button" onClick={props.handleHideLoginModal}>ปิด</Button>
+    <button className="social-button google" onClick={props.startLoginWithGoogle}>
+      Google
+    </button>
+    <button className="social-button facebook" onClick={props.startLoginWithFacebook}>
+      Facebook
+    </button>
+    <button className="button button-link" onClick={props.handleHideLoginModal}>ปิด</button>
   </Modal>
 );
 

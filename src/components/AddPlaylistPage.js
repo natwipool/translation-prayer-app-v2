@@ -11,8 +11,14 @@ export class AddPlaylistPage extends React.Component {
   render() {
     return (
       <div>
-        <h3>สร้างรายการสวดมนต์</h3>
-        <PlaylistForm onSubmit={this.onSubmit} />
+        <div className="page-header">
+          <div className="content-container-body">
+            <h3 className="page-header__title">เพิ่มรายการสวดมนต์</h3>
+          </div>
+        </div>
+        <div className="content-container-body">
+          <PlaylistForm onSubmit={this.onSubmit} />
+        </div>
       </div>
     );
   }

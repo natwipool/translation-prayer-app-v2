@@ -13,17 +13,25 @@ const Checkbox = props => {
 
   return (
     <div>
-      <input
-        type="checkbox"
-        id={props.precept}
-        checked={props.lists.find(list => list === props.precept)}
-        value={props.precept}
-        onChange={onCheckboxChange}
-      />
-      <label htmlFor={props.precept}>
-        <b>{props.precept}</b> - {props.category}{' '}
-        {props.lists.indexOf(props.precept) > -1 &&
-          props.lists.indexOf(props.precept) + 1}
+      <label htmlFor={props.precept} className="checkbox">
+        <input
+          type="checkbox"
+          id={props.precept}
+          checked={props.lists.find(list => list === props.precept)}
+          value={props.precept}
+          onChange={onCheckboxChange}
+        />
+        <div className="checkbox-content">
+        <span />
+          
+            <p className="checkbox-content__title">{props.precept}</p>
+            
+            {
+              props.lists.indexOf(props.precept) > -1 &&
+              <p className="checkbox-content__number">{props.lists.indexOf(props.precept) + 1}</p>
+            } 
+          
+        </div>
       </label>
     </div>
   );

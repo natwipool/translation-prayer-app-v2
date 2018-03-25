@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button } from 'react-bootstrap';
 import LoginPage from '../components/LoginPage';
 import { handleShowModal } from '../actions/modal';
 
@@ -12,15 +11,19 @@ export const TriedLoginPage = ({ loginModal, handleShowModal }) => (
       </div>
     </div>
     <div className="content-container-body">
-      <p>กรุณาเข้าระบบก่อนใช้งาน บทสวดมนต์ของฉัน</p>
-      <Button
-        bsStyle="success"
-        onClick={() => {
-          handleShowModal(true);
-        }}
-      >
-        เข้าสู่ระบบ
-      </Button>
+      <div className="text-container">
+        <p>กรุณาเข้าระบบก่อนใช้งาน บทสวดมนต์ของฉัน</p>
+        </div>
+        <button
+        
+          className="button"
+          onClick={() => {
+            handleShowModal(true);
+          }}
+        >
+          เข้าสู่ระบบ
+        </button>
+      
       <LoginPage
         showLoginModal={!!loginModal.showModal}
         handleHideLoginModal={() => {
