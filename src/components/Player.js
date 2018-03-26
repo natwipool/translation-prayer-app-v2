@@ -35,7 +35,6 @@ export class Player extends React.Component {
   }
 
   isPlayingToggle = () => {
-    console.log(this.props.players.index)
     this.props.isPlayingToggle();
     if (!this.props.players.isPlaying) {
       this.props.handleOpenModal();
@@ -116,7 +115,7 @@ export class Player extends React.Component {
           </div>
           <div className="player-content">
             {this.playlists && this.state.isReady ? (
-              <h3 className="player-title move-text">
+              <h3 className="player-title">
                 {this.playlists[this.props.players.index].precept}
               </h3>
             ) : (

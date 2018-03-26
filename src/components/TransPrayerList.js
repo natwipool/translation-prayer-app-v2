@@ -14,9 +14,9 @@ export class TransPrayerList extends React.Component {
     };
   }
 
-  handleOpenModal = index => {
+  handleOpenModal = () => {
+    this.props.setIndex(this.props.players.index);
     this.setState(() => ({ openModal: true }));
-    this.props.setIndex(index);
   };
 
   handleCloseModal = () => {
