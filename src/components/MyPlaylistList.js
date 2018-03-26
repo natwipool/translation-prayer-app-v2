@@ -7,21 +7,40 @@ import LyricsPage from './LyricsPage';
 import getPlaylistData from '../utils/get-playlist-data';
 
 export class MyPlaylistList extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      openModal: false
+    };
+  }
+
+  handleOpenModal = index => {
+    this.setState(() => ({ openModal: true }));
+    this.props.setIndex(index);
+  };
+
+  handleCloseModal = () => {
+    this.setState(() => ({ openModal: false }));
+  };
+
   onPlayByIndex = index => {
     this.props.setIndex(index);
     this.props.setPlaying(true);
+    this.setState(() => ({ openModal: true }));
   };
 
   render() {
     return (
       <div className="content-container-body content-container-player">
-        {this.props.players.isPlaying && (
-          <LyricsPage
-            playlists={this.props.playlists}
-            index={this.props.players.index}
-          />
-        )}
-        <div className="list-header"></div>
+        <LyricsPage
+          playlists={this.props.playlists}
+          index={this.props.players.index}
+          openModal={this.state.openModal}
+          handleCloseModal={this.handleCloseModal}
+        />
+
+        <div className="list-header" />
         {this.props.playlists.map((playlist, index) => (
           <div key={index} className="list-item">
             <MyPlaylistListItem {...playlist} />
@@ -32,13 +51,18 @@ export class MyPlaylistList extends React.Component {
               }}
             >
               {this.props.players.isPlaying &&
-              this.props.players.index === index
-                ? <img src="/images/sound-bars.png" />
-                : <img src="/images/play.png" />}
+              this.props.players.index === index ? (
+                <img src="/images/sound-bars.png" />
+              ) : (
+                <img src="/images/play.png" />
+              )}
             </button>
           </div>
         ))}
-        <Player playlists={this.props.playlists} />
+        <Player
+          playlists={this.props.playlists}
+          handleOpenModal={this.handleOpenModal}
+        />
       </div>
     );
   }

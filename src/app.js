@@ -7,7 +7,7 @@ import configureStore from './store/configureStore';
 import { startSetPlaylists } from './actions/playlists';
 import { setTransPrayers } from './actions/transPrayers';
 import { login, logout } from './actions/auth';
-import { handleShowModal } from './actions/modal';
+import { handleShowLoginModal } from './actions/modal';
 import transPrayersData from './data/transPrayersData';
 import LoadingPage from './components/LoadingPage';
 import 'normalize.css/normalize.css';
@@ -37,7 +37,7 @@ firebase.auth().onAuthStateChanged(user => {
 
   if (user) {
     store.dispatch(login(user.uid));
-    store.dispatch(handleShowModal());
+    store.dispatch(handleShowLoginModal());
     store.dispatch(startSetPlaylists()).then(() => {
       renderApp();
   

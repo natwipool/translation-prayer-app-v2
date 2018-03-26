@@ -1,4 +1,4 @@
-export const handleShowModal = (showModal = undefined) => ({
-  type: 'SHOW_MODAL',
-  showModal
+export const handleShowLoginModal = (showLoginModal = undefined) => ({
+  type: 'SHOW_LOGIN_MODAL',
+  showLoginModal
 });

@@ -5,7 +5,7 @@ import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import LoginPage from '../components/LoginPage';
 import { startLogout } from '../actions/auth';
-import { handleShowModal } from '../actions/modal';
+import { handleShowLoginModal } from '../actions/modal';
 
 export const Header = props => (
   <header>
@@ -35,7 +35,7 @@ export const Header = props => (
                 <button 
                   className="button header-button"
                   onClick={() => {
-                    props.handleShowModal(true);
+                    props.handleShowLoginModal(true);
                   }}
                 >
                   เข้าสู่ระบบ
@@ -54,9 +54,9 @@ export const Header = props => (
       </div>
     </Navbar>
     <LoginPage
-      showLoginModal={!!props.loginModal.showModal}
+      showLoginModal={!!props.loginModal}
       handleHideLoginModal={() => {
-        props.handleShowModal();
+        props.handleShowLoginModal();
       }}
     />
   </header>
@@ -64,12 +64,12 @@ export const Header = props => (
 
 const mapStateToProps = state => ({
   isAuthenticated: !!state.auth.uid,
-  loginModal: state.modal
+  loginModal: state.modal.showLoginModal
 });
 
 const mapDispatchToProps = dispatch => ({
   startLogout: () => dispatch(startLogout()),
-  handleShowModal: isShow => dispatch(handleShowModal(isShow))
+  handleShowLoginModal: isShow => dispatch(handleShowLoginModal(isShow))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

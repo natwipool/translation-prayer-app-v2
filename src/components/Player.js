@@ -35,7 +35,11 @@ export class Player extends React.Component {
   }
 
   isPlayingToggle = () => {
+    console.log(this.props.players.index)
     this.props.isPlayingToggle();
+    if (!this.props.players.isPlaying) {
+      this.props.handleOpenModal();
+    }
   };
 
   onNextClick = () => {

@@ -1,8 +1,9 @@
 export default (state = {}, action) => {
   switch (action.type) {
-    case 'SHOW_MODAL':
+    case 'SHOW_LOGIN_MODAL':
       return {
-        showModal: action.showModal
+        ...state,
+        showLoginModal: action.showLoginModal
       }
     default:
       return state

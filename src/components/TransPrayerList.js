@@ -6,20 +6,39 @@ import Player from './Player';
 import LyricsPage from './LyricsPage';
 
 export class TransPrayerList extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      openModal: false
+    };
+  }
+
+  handleOpenModal = index => {
+    this.setState(() => ({ openModal: true }));
+    this.props.setIndex(index);
+  };
+
+  handleCloseModal = () => {
+    this.setState(() => ({ openModal: false }));
+  };
+
   onPlayByIndex = index => {
     this.props.setIndex(index);
     this.props.setPlaying(true);
+    this.setState(() => ({ openModal: true }));
   };
 
   render() {
     return (
       <div className="content-container-body content-container-player">
-        {this.props.players.isPlaying && (
-          <LyricsPage
-            playlists={this.props.transPrayers}
-            index={this.props.players.index}
-          />
-        )}
+        <LyricsPage
+          playlists={this.props.transPrayers}
+          index={this.props.players.index}
+          openModal={this.state.openModal}
+          handleCloseModal={this.handleCloseModal}
+        />
+
         <div className="list-header" />
         {this.props.transPrayers.map((tranPrayer, index) => (
           <div key={index} className="list-item">
@@ -39,7 +58,10 @@ export class TransPrayerList extends React.Component {
             </button>
           </div>
         ))}
-        <Player playlists={this.props.transPrayers} />
+        <Player
+          playlists={this.props.transPrayers}
+          handleOpenModal={this.handleOpenModal}
+        />
       </div>
     );
   }

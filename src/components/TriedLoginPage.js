@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import LoginPage from '../components/LoginPage';
-import { handleShowModal } from '../actions/modal';
+import { handleShowLoginModal } from '../actions/modal';
 
-export const TriedLoginPage = ({ loginModal, handleShowModal }) => (
+export const TriedLoginPage = ({ loginModal, handleShowLoginModal }) => (
   <div>
     <div className="page-header">
       <div className="content-container-body">
@@ -17,16 +17,16 @@ export const TriedLoginPage = ({ loginModal, handleShowModal }) => (
       <button
         className="button"
         onClick={() => {
-          handleShowModal(true);
+          handleShowLoginModal(true);
         }}
       >
         เข้าสู่ระบบ
       </button>
 
       <LoginPage
-        showLoginModal={!!loginModal.showModal}
+        showLoginModal={loginModal}
         handleHideLoginModal={() => {
-          handleShowModal();
+          handleShowLoginModal();
         }}
       />
     </div>
@@ -34,11 +34,11 @@ export const TriedLoginPage = ({ loginModal, handleShowModal }) => (
 );
 
 const mapStateToProps = state => ({
-  loginModal: state.modal
+  loginModal: state.modal.showLoginModal
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleShowModal: isShow => dispatch(handleShowModal(isShow))
+  handleShowLoginModal: isShow => dispatch(handleShowLoginModal(isShow))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TriedLoginPage);

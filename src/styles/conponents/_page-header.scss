@@ -16,6 +16,7 @@ div.page-header {
   margin-top: 10px;
   margin-left: $m-size;
   color: $dark-grey;
+  word-break: break-all;
   @media(max-width: 768px) {
     font-size: 2rem;
     margin-left: 0;
