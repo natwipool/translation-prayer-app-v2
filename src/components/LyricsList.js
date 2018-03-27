@@ -14,7 +14,7 @@ export const LyricsList = props => (
       ))}
     </Modal.Body>
     <Modal.Footer>
-      <button onClick={props.handleCloseModal}>close</button>
+      <button className="button del-button" onClick={props.handleCloseModal}>ปิด</button>
     </Modal.Footer>
   </Modal>
 );

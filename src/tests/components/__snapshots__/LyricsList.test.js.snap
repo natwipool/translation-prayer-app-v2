@@ -56,8 +56,10 @@ exports[`should render LyricsList correctly 1`] = `
     bsClass="modal-footer"
     componentClass="div"
   >
-    <button>
-      close
+    <button
+      className="button del-button"
+    >
+      ปิด
     </button>
   </ModalFooter>
 </Modal>

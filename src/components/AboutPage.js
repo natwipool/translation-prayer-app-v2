@@ -10,17 +10,12 @@ const AboutPage = () => (
     <div className="content-container-body">
       <img className="cover-image" src="/images/about.jpg" />
       <div className="text-container">
+        <h4>ขอขอบคุณ</h4>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-          tempus nisl odio, in sollicitudin nunc lacinia et. Sed molestie, nibh
-          consectetur pulvinar pulvinar, urna ligula mattis tellus, quis
-          molestie orci lectus eget libero. Curabitur ac ex turpis. Curabitur
-          ante nunc, semper sed imperdiet quis, vehicula eget eros. Fusce id
-          fermentum dolor. Ut gravida mauris enim, non placerat eros blandit
-          nec. Nulla malesuada urna ut felis maximus, at luctus lectus
-          hendrerit. Interdum et malesuada fames ac ante ipsum primis in
-          faucibus. Pellentesque ultricies quam quis elit ultricies, ut ultrices
-          sapien fermentum.
+          ข้อมูลและไฟล์เสียงบทสวดมนต์จาก{' '}
+          <a href="https://http://wimutti.org/" title="wimutti">
+            เว็บไซต์ wimutti.org
+          </a>
         </p>
         <p>
           Icons made by{' '}
@@ -42,6 +37,14 @@ const AboutPage = () => (
           >
             CC 3.0 BY
           </a>
+        </p>
+        <br />
+        <h4>ติดต่อสอบถามได้ที่</h4>
+        <p>
+          Facebook Page <a href="https://web.facebook.com/สวดมนต์-2068899220053295/">สวดมนต์</a>
+        </p>
+        <p>
+          Email <a href="mailto:natwipool@gmail.com">natwipool@gmail.com</a>
         </p>
       </div>
     </div>
