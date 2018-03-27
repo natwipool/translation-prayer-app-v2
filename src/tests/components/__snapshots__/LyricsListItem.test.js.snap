@@ -1,8 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render LyricsListItem correctly 1`] = `
-<div>
-  <p>
+<div
+  className="lyric__text"
+>
+  <p
+    className="lyric-pali__text"
+  >
     dfg
   </p>
 </div>

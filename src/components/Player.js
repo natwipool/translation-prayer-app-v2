@@ -36,9 +36,6 @@ export class Player extends React.Component {
 
   isPlayingToggle = () => {
     this.props.isPlayingToggle();
-    if (!this.props.players.isPlaying) {
-      this.props.handleOpenModal();
-    }
   };
 
   onNextClick = () => {
@@ -50,7 +47,7 @@ export class Player extends React.Component {
   };
 
   onEndedEvent = () => {
-    if (this.props.players.index + 1 === this.props.playlists.length) {
+    if (this.props.players.index + 1 >= this.props.playlists.length) {
       this.props.setIndex();
       this.props.setPlaying();
     } else {

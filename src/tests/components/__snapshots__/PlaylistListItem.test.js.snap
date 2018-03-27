@@ -1,14 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render PlaylistListItem with a playlist 1`] = `
-<div>
-  <Link
-    replace={false}
-    to="/playlist/1"
+<Link
+  className="playlist-item"
+  replace={false}
+  to="/playlist/1"
+>
+  <h3
+    className="playlist-item__title"
   >
-    <h3>
-      Playlist name one
-    </h3>
-  </Link>
-</div>
+    Playlist name one
+  </h3>
+</Link>
 `;

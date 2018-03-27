@@ -1,18 +1,16 @@
 .lyric__title {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   font-weight: 700;
 }
-.lyric__text {
-  font-size: $m-size;
-}
+
 
 .lyric-pali__text {
+  font-size: 1.8rem;
   margin: 0;
 }
 
 .lyric-translation__text {
-  font-style: italic;
-  font-weight: 200;
-  color: $grey;
+  color:#7F7F7F;
   margin-bottom: 1rem;
+  font-size: 1.7rem;
 }

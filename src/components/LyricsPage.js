@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import LyricsList from './LyricsList';
 
-const LyricsPage = (props) => (
+export const LyricsPage = (props) => (
   <div>
     <LyricsList 
       playlist={props.playlists.find((playlist, index) =>

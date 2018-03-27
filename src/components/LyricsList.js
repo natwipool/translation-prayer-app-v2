@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Modal } from 'react-bootstrap';
 import LyricsListItem from './LyricsListItem';
 
-const LyricsList = props => (
+export const LyricsList = props => (
   <Modal show={props.openModal} onHide={props.handleCloseModal}>
     <Modal.Header closeButton>
       <Modal.Title className="lyric__title">{props.playlist.precept}</Modal.Title>
@@ -19,8 +19,12 @@ const LyricsList = props => (
   </Modal>
 );
 
+const mapStateToProps = state => ({
+  players: state.players
+});
+
 const mapDispatchToProps = dispatch => ({
   handleShowLyricModal: showModal => dispatch(handleShowLyricModal(showModal))
 });
 
-export default connect(undefined, mapDispatchToProps)(LyricsList);
+export default connect(mapStateToProps, mapDispatchToProps)(LyricsList);

@@ -2,12 +2,29 @@
 
 exports[`should render PlaylistDashboardPage correctly 1`] = `
 <div>
-  <Link
-    replace={false}
-    to="/create"
+  <div
+    className="page-header"
   >
-    สร้างรายการสวดมนต์
-  </Link>
+    <div
+      className="content-container-body"
+    >
+      <h2
+        className="page-header__title"
+      >
+        บทสวดมนต์ของฉัน
+      </h2>
+      <button
+        className="button--secondary"
+      >
+        <Link
+          replace={false}
+          to="/create"
+        >
+          + เพิ่มรายการ
+        </Link>
+      </button>
+    </div>
+  </div>
   <Connect(PlaylistList) />
 </div>
 `;

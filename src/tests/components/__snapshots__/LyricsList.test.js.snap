@@ -1,14 +1,64 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render LyricsList correctly 1`] = `
-<div>
-  <LyricsListItem
-    key="0"
-    lyric="abc"
-  />
-  <LyricsListItem
-    key="1"
-    lyric="dfg"
-  />
-</div>
+<Modal
+  animation={true}
+  autoFocus={true}
+  backdrop={true}
+  bsClass="modal"
+  dialogComponentClass={[Function]}
+  enforceFocus={true}
+  keyboard={true}
+  manager={
+    ModalManager {
+      "add": [Function],
+      "containers": Array [],
+      "data": Array [],
+      "handleContainerOverflow": true,
+      "hideSiblingNodes": true,
+      "isTopModal": [Function],
+      "modals": Array [],
+      "remove": [Function],
+    }
+  }
+  onHide={[Function]}
+  renderBackdrop={[Function]}
+  restoreFocus={true}
+  show={false}
+>
+  <ModalHeader
+    bsClass="modal-header"
+    closeButton={true}
+    closeLabel="Close"
+  >
+    <ModalTitle
+      bsClass="modal-title"
+      className="lyric__title"
+      componentClass="h4"
+    >
+      เขมาเขมสรณคมนปริทีปิกาคาถา
+    </ModalTitle>
+  </ModalHeader>
+  <ModalBody
+    bsClass="modal-body"
+    componentClass="div"
+  >
+    <LyricsListItem
+      key="0"
+      lyric="abc"
+    />
+    <LyricsListItem
+      key="1"
+      lyric="dfg"
+    />
+  </ModalBody>
+  <ModalFooter
+    bsClass="modal-footer"
+    componentClass="div"
+  >
+    <button>
+      close
+    </button>
+  </ModalFooter>
+</Modal>
 `;

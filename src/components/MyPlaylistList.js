@@ -15,9 +15,9 @@ export class MyPlaylistList extends React.Component {
     };
   }
 
-  handleOpenModal = index => {
+  handleOpenModal = () => {
     this.setState(() => ({ openModal: true }));
-    this.props.setIndex(index);
+    this.props.setIndex(this.props.players.index);
   };
 
   handleCloseModal = () => {
@@ -52,7 +52,7 @@ export class MyPlaylistList extends React.Component {
             >
               {this.props.players.isPlaying &&
               this.props.players.index === index ? (
-                <img src="/images/sound-bars.png" />
+                <img src="/images/open-book.png" />
               ) : (
                 <img src="/images/play.png" />
               )}
@@ -61,7 +61,6 @@ export class MyPlaylistList extends React.Component {
         ))}
         <Player
           playlists={this.props.playlists}
-          handleOpenModal={this.handleOpenModal}
         />
       </div>
     );

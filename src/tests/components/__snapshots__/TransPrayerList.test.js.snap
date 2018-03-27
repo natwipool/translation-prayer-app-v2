@@ -4,6 +4,48 @@ exports[`should render TransPrayerList with playlists 1`] = `
 <div
   className="content-container-body content-container-player"
 >
+  <Connect(LyricsPage)
+    handleCloseModal={[Function]}
+    index={0}
+    openModal={false}
+    playlists={
+      Array [
+        Object {
+          "category": "บทสวดมนต์ภาคเย็น",
+          "duration": 155.99425,
+          "filename": "11_เขมาเขมสรณคมนปริทีปิกาคาถา.mp3",
+          "id": "11",
+          "lyrics": Array [
+            "abc",
+            "dfg",
+          ],
+          "precept": "เขมาเขมสรณคมนปริทีปิกาคาถา",
+        },
+        Object {
+          "category": "บทสวดมนต์ภาคเย็น",
+          "duration": 99.99425,
+          "filename": "12_อริยธนคาถา.mp3",
+          "id": "12",
+          "lyrics": Array [
+            "123",
+            "456",
+          ],
+          "precept": "อริยธนคาถา",
+        },
+        Object {
+          "category": "บทสวดมนต์ภาคเย็น",
+          "duration": 212.99425,
+          "filename": "13_ติลักขณาทิคาถา.mp3",
+          "id": "13",
+          "lyrics": Array [
+            "789",
+            "123",
+          ],
+          "precept": "ติลักขณาทิคาถา",
+        },
+      ]
+    }
+  />
   <div
     className="list-header"
   />

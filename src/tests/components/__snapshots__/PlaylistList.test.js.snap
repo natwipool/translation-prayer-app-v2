@@ -1,50 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render PlaylistList with no playlists 1`] = `
-<div>
-  <p>
-    ไม่มีรายการสวดมนต์
-  </p>
+<div
+  className="content-container-body"
+>
+  <div
+    className="list-body"
+  >
+    <div
+      className="list-header"
+    />
+    <div
+      className="playlist-item playlist-item--message"
+    >
+      <span>
+        ไม่มีรายการสวดมนต์
+      </span>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`should render PlaylistList with playlists 1`] = `
-<div>
-  <Connect(PlaylistListItem)
-    description="Playlist name one"
-    id="1"
-    key="1"
-    lists={
-      Array [
-        "คำทำวัตรเช้า",
-        "ตังขณิกปัจจเวกขณปาฐะ",
-        "บทพิจารณาสังขาร",
-      ]
-    }
-  />
-  <Connect(PlaylistListItem)
-    description="Playlist name two"
-    id="2"
-    key="2"
-    lists={
-      Array [
-        "คำทำวัตรเย็น",
-        "อตีตปัจจเวกขณปาฐะ",
-        "สรณคมนปาฐะ",
-      ]
-    }
-  />
-  <Connect(PlaylistListItem)
-    description="Playlist name three"
-    id="3"
-    key="3"
-    lists={
-      Array [
-        "อานาปานสติสูตร",
-        "อริยมรรคมีองค์แปด",
-        "ธัมมจักกัปปวัตตนสุตตปาฐะ",
-      ]
-    }
-  />
+<div
+  className="content-container-body"
+>
+  <div
+    className="list-body"
+  >
+    <div
+      className="list-header"
+    />
+    <Connect(PlaylistListItem)
+      description="Playlist name one"
+      id="1"
+      key="1"
+      lists={
+        Array [
+          "คำทำวัตรเช้า",
+          "ตังขณิกปัจจเวกขณปาฐะ",
+          "บทพิจารณาสังขาร",
+        ]
+      }
+    />
+    <Connect(PlaylistListItem)
+      description="Playlist name two"
+      id="2"
+      key="2"
+      lists={
+        Array [
+          "คำทำวัตรเย็น",
+          "อตีตปัจจเวกขณปาฐะ",
+          "สรณคมนปาฐะ",
+        ]
+      }
+    />
+    <Connect(PlaylistListItem)
+      description="Playlist name three"
+      id="3"
+      key="3"
+      lists={
+        Array [
+          "อานาปานสติสูตร",
+          "อริยมรรคมีองค์แปด",
+          "ธัมมจักกัปปวัตตนสุตตปาฐะ",
+        ]
+      }
+    />
+  </div>
 </div>
 `;

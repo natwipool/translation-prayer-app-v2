@@ -2,21 +2,26 @@
 
 exports[`should render Checkbox correctly 1`] = `
 <div>
-  <input
-    id="เขมาเขมสรณคมนปริทีปิกาคาถา"
-    onChange={[Function]}
-    type="checkbox"
-    value="เขมาเขมสรณคมนปริทีปิกาคาถา"
-  />
   <label
+    className="checkbox"
     htmlFor="เขมาเขมสรณคมนปริทีปิกาคาถา"
   >
-    <b>
-      เขมาเขมสรณคมนปริทีปิกาคาถา
-    </b>
-     - 
-    บทสวดมนต์ภาคเย็น
-     
+    <input
+      id="เขมาเขมสรณคมนปริทีปิกาคาถา"
+      onChange={[Function]}
+      type="checkbox"
+      value="เขมาเขมสรณคมนปริทีปิกาคาถา"
+    />
+    <div
+      className="checkbox-content"
+    >
+      <span />
+      <p
+        className="checkbox-content__title"
+      >
+        เขมาเขมสรณคมนปริทีปิกาคาถา
+      </p>
+    </div>
   </label>
 </div>
 `;

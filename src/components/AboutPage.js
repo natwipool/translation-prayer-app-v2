@@ -23,14 +23,25 @@ const AboutPage = () => (
           sapien fermentum.
         </p>
         <p>
-          Nullam id neque elit. Sed sit amet quam eu elit venenatis accumsan sed
-          ut mi. In accumsan tellus ut ligula elementum gravida. Nam nec
-          vehicula tortor. Vivamus interdum elit id dignissim mattis. Donec vel
-          orci id leo bibendum pulvinar. Cras fringilla eleifend elit, lobortis
-          facilisis nunc. Proin et ex ornare, interdum nisl ac, sagittis tellus.
-          Fusce tortor est, mollis ac metus a, suscipit aliquet justo. Duis
-          blandit libero mi, tincidunt auctor dui porttitor nec. Aliquam erat
-          volutpat.
+          Icons made by{' '}
+          <a
+            href="https://www.flaticon.com/authors/zlatko-najdenovski"
+            title="Zlatko Najdenovski"
+          >
+            Zlatko Najdenovski
+          </a>{' '}
+          from{' '}
+          <a href="https://www.flaticon.com/" title="Flaticon">
+            www.flaticon.com
+          </a>{' '}
+          is licensed by{' '}
+          <a
+            href="http://creativecommons.org/licenses/by/3.0/"
+            title="Creative Commons BY 3.0"
+            target="_blank"
+          >
+            CC 3.0 BY
+          </a>
         </p>
       </div>
     </div>

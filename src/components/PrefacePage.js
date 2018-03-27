@@ -11,26 +11,25 @@ const PrefacePage = () => (
       <img className="cover-image" src="/images/preface.jpg" />
       <div className="text-container">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-          tempus nisl odio, in sollicitudin nunc lacinia et. Sed molestie, nibh
-          consectetur pulvinar pulvinar, urna ligula mattis tellus, quis
-          molestie orci lectus eget libero. Curabitur ac ex turpis. Curabitur
-          ante nunc, semper sed imperdiet quis, vehicula eget eros. Fusce id
-          fermentum dolor. Ut gravida mauris enim, non placerat eros blandit
-          nec. Nulla malesuada urna ut felis maximus, at luctus lectus
-          hendrerit. Interdum et malesuada fames ac ante ipsum primis in
-          faucibus. Pellentesque ultricies quam quis elit ultricies, ut ultrices
-          sapien fermentum.
+          การสวดมนต์ เป็นกิจวัตรที่สำคัญอย่างหนึ่งของพุทธศาสนิกชน
+          ซึ่งถือปฏิบัติติดต่อกันมาเป็นเวลายาวนาน โดยเฉพาะ พระภิกษุ สามเณร
+          จะต้องปฏิบัติกันเป็นประจำทั้งเวลาเช้าและเวลาเย็น โดยมิขาด เมื่อถึงเวลา
+          วัดต่างๆ จะตีสัญญาณระฆังทั้งเช้าและเย็นจนเป็นที่รู้และคุ้นเคยกันทั้ง
+          พระภิกษุ สามเณร และชาวบ้าน
         </p>
         <p>
-          Nullam id neque elit. Sed sit amet quam eu elit venenatis accumsan sed
-          ut mi. In accumsan tellus ut ligula elementum gravida. Nam nec
-          vehicula tortor. Vivamus interdum elit id dignissim mattis. Donec vel
-          orci id leo bibendum pulvinar. Cras fringilla eleifend elit, lobortis
-          facilisis nunc. Proin et ex ornare, interdum nisl ac, sagittis tellus.
-          Fusce tortor est, mollis ac metus a, suscipit aliquet justo. Duis
-          blandit libero mi, tincidunt auctor dui porttitor nec. Aliquam erat
-          volutpat.
+          การสวดมนต์ไหว้พระ เป็นการสืบต่ออายุพระศาสนา
+          และเป็นการอบรมจิตใจของผู้สวดให้มีสมาธิ ไม่ฟุ้งซ่าน
+          และเป็นการกล่อมเกลาอัธยาศัยให้ปราณีต เป็นการพัฒนาจิตใจให้มีคุณธรรม
+          ยิ่งๆ ขึ้นไป อย่างไรก็ตาม การไหว้พระสวดมนต์ โดยทั่วไปนั้น
+          ไม่เฉพาะแต่พระสงฆ์และสามเณรเท่านั้น แม้แต่คฤหัสถ์ทั่วไปก็นิยมสวดมนต์
+          ไหว้พระก่อนนอนหรือทำวัตรเช้า-เย็น กันอย่างกว้างขวาง เพราะถือเป็นบุญ
+          เป็นกุศล เป็นการปฏิบัติธรรมอย่างหนึ่ง
+        </p>
+        <p>
+          เว็บสวดมนต์แปลนี้ ได้รวบรวมบทสวดมนต์แปล พร้อมทั้งเสียงสวดมนต์
+          ฉบับวัดหนองป่าพง เพื่อเป็นเครื่องมืออำนวยความสะดวก
+          เพื่อจะได้เกิดประโยชน์แก่ผู้สนใจ และผู้ปฏิบัติธรรมทุกๆท่าน สุดท้ายนี้ก็ขอ อนุโมทนาบุญกับทุกท่านด้วยครับ
         </p>
       </div>
     </div>

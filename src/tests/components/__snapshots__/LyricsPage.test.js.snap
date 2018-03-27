@@ -2,7 +2,7 @@
 
 exports[`should render LyricsPage correctly 1`] = `
 <div>
-  <LyricsList
+  <Connect(LyricsList)
     playlist={
       Object {
         "category": "บทสวดมนต์ภาคเย็น",

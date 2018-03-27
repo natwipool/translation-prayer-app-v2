@@ -51,7 +51,7 @@ export class TransPrayerList extends React.Component {
             >
               {this.props.players.isPlaying &&
               this.props.players.index === index ? (
-                <img src="/images/sound-bars.png" />
+                <img src="/images/open-book.png" />
               ) : (
                 <img src="/images/play.png" />
               )}
@@ -60,7 +60,6 @@ export class TransPrayerList extends React.Component {
         ))}
         <Player
           playlists={this.props.transPrayers}
-          handleOpenModal={this.handleOpenModal}
         />
       </div>
     );
