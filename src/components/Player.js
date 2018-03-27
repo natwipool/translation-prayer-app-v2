@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ReactPlayer from 'react-player';
+import { ProgressBar } from 'react-bootstrap';
+import currentPercent from '../utils/current-time-to-percent';
 import {
   incrementIndex,
   decrementIndex,
@@ -14,7 +16,8 @@ export class Player extends React.Component {
   state = {
     duration: undefined,
     currentTime: undefined,
-    isReady: false
+    isReady: false,
+    currentPercent: undefined
   };
 
   playlists = this.props.playlists.map(({ filename, precept }) => ({
@@ -61,7 +64,10 @@ export class Player extends React.Component {
   };
 
   onProgress = state => {
-    this.setState(() => ({ currentTime: state.playedSeconds }));
+    this.setState(() => ({
+      currentTime: state.playedSeconds,
+      currentPercent: currentPercent(this.state.currentTime, this.state.duration)
+    }));
   };
 
   onDuration = duration => {
@@ -75,6 +81,7 @@ export class Player extends React.Component {
   render() {
     return (
       <div className="player-container">
+        <ProgressBar bsStyle="warning" now={this.state.currentPercent} />
         <div className="player">
           <div>
             <ReactPlayer

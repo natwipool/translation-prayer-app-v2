@@ -32,7 +32,8 @@ exports[`should render AboutPage correctly 1`] = `
         ข้อมูลและไฟล์เสียงบทสวดมนต์จาก
          
         <a
-          href="https://http://wimutti.org/"
+          href="http://wimutti.org/"
+          target="_blank"
           title="wimutti"
         >
           เว็บไซต์ wimutti.org
@@ -42,7 +43,16 @@ exports[`should render AboutPage correctly 1`] = `
         Icons made by
          
         <a
+          href="https://www.flaticon.com/authors/smashicons"
+          target="_blank"
+          title="Smashicons"
+        >
+          Smashicons,
+        </a>
+         
+        <a
           href="https://www.flaticon.com/authors/zlatko-najdenovski"
+          target="_blank"
           title="Zlatko Najdenovski"
         >
           Zlatko Najdenovski
@@ -52,6 +62,7 @@ exports[`should render AboutPage correctly 1`] = `
          
         <a
           href="https://www.flaticon.com/"
+          target="_blank"
           title="Flaticon"
         >
           www.flaticon.com
@@ -72,7 +83,8 @@ exports[`should render AboutPage correctly 1`] = `
         ติดต่อสอบถามได้ที่
       </h4>
       <p>
-        Facebook Page 
+        Facebook Page
+         
         <a
           href="https://web.facebook.com/สวดมนต์-2068899220053295/"
         >

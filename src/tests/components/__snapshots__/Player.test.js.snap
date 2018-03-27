@@ -4,6 +4,16 @@ exports[`should render Player correctly 1`] = `
 <div
   className="player-container"
 >
+  <ProgressBar
+    active={false}
+    bsClass="progress-bar"
+    bsStyle="warning"
+    isChild={false}
+    max={100}
+    min={0}
+    srOnly={false}
+    striped={false}
+  />
   <div
     className="player"
   >
