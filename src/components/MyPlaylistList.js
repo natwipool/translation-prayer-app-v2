@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setIndex, setPlaying } from '../actions/players';
+import { setIndex, setPlaying, closePlayer } from '../actions/players';
+import PlayerOptions from './PlayerOptions';
 import MyPlaylistListItem from './MyPlaylistListItem';
 import Player from './Player';
 import LyricsPage from './LyricsPage';
@@ -30,9 +31,18 @@ export class MyPlaylistList extends React.Component {
     this.setState(() => ({ openModal: true }));
   };
 
+  onClosePlayer = () => {
+    this.props.closePlayer();
+  };
+
   render() {
     return (
-      <div className="content-container-body content-container-player">
+      <div
+        className={
+          'content-container-body ' +
+          (!this.props.players.closePlayer && 'content-container-player')
+        }
+      >
         <LyricsPage
           playlists={this.props.playlists}
           index={this.props.players.index}
@@ -40,7 +50,9 @@ export class MyPlaylistList extends React.Component {
           handleCloseModal={this.handleCloseModal}
         />
 
-        <div className="list-header" />
+        <div className="list-header">
+          <PlayerOptions onClosePlayer={this.onClosePlayer} />
+        </div>
         {this.props.playlists.map((playlist, index) => (
           <div key={index} className="list-item">
             <MyPlaylistListItem {...playlist} />
@@ -50,18 +62,28 @@ export class MyPlaylistList extends React.Component {
                 this.onPlayByIndex(index);
               }}
             >
-              {this.props.players.isPlaying &&
+              {this.props.players.closePlayer ? (
+                this.state.openModal && this.props.players.index === index ? (
+                  <img src="/images/open-book.png" />
+                ) : (
+                  <img src="/images/book.png" />
+                )
+              ) : this.props.players.isPlaying &&
               this.props.players.index === index ? (
-                <img src="/images/open-book.png" />
+                this.state.openModal ? (
+                  <img src="/images/open-book.png" />
+                ) : (
+                  <img src="/images/book.png" />
+                )
               ) : (
                 <img src="/images/play.png" />
               )}
             </button>
           </div>
         ))}
-        <Player
-          playlists={this.props.playlists}
-        />
+        {!this.props.players.closePlayer && (
+          <Player playlists={this.props.playlists} />
+        )}
       </div>
     );
   }
@@ -74,7 +96,8 @@ const mapStateToProps = (state, props) => ({
 
 const mapDispatchToProps = dispatch => ({
   setIndex: index => dispatch(setIndex(index)),
-  setPlaying: boolean => dispatch(setPlaying(boolean))
+  setPlaying: boolean => dispatch(setPlaying(boolean)),
+  closePlayer: () => dispatch(closePlayer())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyPlaylistList);

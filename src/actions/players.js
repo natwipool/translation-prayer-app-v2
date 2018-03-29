@@ -1,3 +1,8 @@
+// CLOSE_PLAYER
+export const closePlayer = () => ({
+  type: 'CLOSE_PLAYER',
+});
+
 // IS_PLAYING_TOGGLE
 export const isPlayingToggle = () => ({
   type: 'IS_PLAYING_TOGGLE'

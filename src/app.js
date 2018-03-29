@@ -8,7 +8,7 @@ import { startSetPlaylists } from './actions/playlists';
 import { setTransPrayers } from './actions/transPrayers';
 import { login, logout } from './actions/auth';
 import { handleShowLoginModal } from './actions/modal';
-import transPrayersData from './data/transPrayersData';
+import transPrayersJSON from './data/transPrayersData.json';
 import LoadingPage from './components/LoadingPage';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
@@ -21,7 +21,7 @@ const jsx = (
   </Provider>
 );
 
-store.dispatch(setTransPrayers(transPrayersData));
+store.dispatch(setTransPrayers(transPrayersJSON));
 
 let hasRendered = false;
 const renderApp = () => {

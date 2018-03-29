@@ -11,6 +11,7 @@
   margin: 0 auto;
   padding: 0 $m-size;
   max-width: 75rem;
+  margin-bottom: $m-size;
   @media(min-width: 995px) {
     max-width: 100rem;
     padding: 0 $l-size;
@@ -22,7 +23,7 @@
 }
 
 .content-container-player {
-  margin-bottom: 7rem;
+  margin-bottom: 7.4rem;
 }
 
 .text-container {

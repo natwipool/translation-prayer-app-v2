@@ -11,19 +11,38 @@ import {
   setIndex
 } from '../actions/players';
 import formatTime from '../utils/format-time';
+import { detect } from 'detect-browser';
+
+const browser = detect();
 
 export class Player extends React.Component {
-  state = {
-    duration: undefined,
-    currentTime: undefined,
-    isReady: false,
-    currentPercent: undefined
-  };
+  constructor(props) {
+    super(props);
 
-  playlists = this.props.playlists.map(({ filename, precept }) => ({
-    mp3: `https://s3-ap-southeast-1.amazonaws.com/transprayer/mp3/${filename}.mp3`,
-    precept
-  }));
+    this.state = {
+      duration: undefined,
+      currentTime: undefined,
+      isReady: false,
+      currentPercent: undefined
+    };
+
+    if (browser.name !== 'safari') {
+      this.playlists = this.props.playlists.map(({ filename, precept }) => ({
+        exe: `https://s3-ap-southeast-1.amazonaws.com/transprayer/ogg/${filename}.ogg`,
+        precept
+      }));
+    } else {
+      this.playlists = this.props.playlists.map(({ filename, precept }) => ({
+        exe: `https://s3-ap-southeast-1.amazonaws.com/transprayer/mp3/${filename}.mp3`,
+        precept
+      }));
+    }
+    
+  }
+
+  componentWillMount() {
+    this.props.setPlaying();
+  }
 
   componentWillUnmount() {
     this.setState(() => ({ isReady: false }));
@@ -55,7 +74,9 @@ export class Player extends React.Component {
       this.props.setPlaying();
     } else {
       this.props.incrementIndex();
-      this.props.setPlaying(true);
+      if (!this.props.players.isPlaying) {
+        this.props.setPlaying(true);
+      }  
     }
   };
 
@@ -87,13 +108,13 @@ export class Player extends React.Component {
             <ReactPlayer
               ref={this.ref}
               playing={this.props.players.isPlaying}
-              url={this.playlists[this.props.players.index].mp3}
+              url={this.playlists[this.props.players.index].exe}
               onEnded={this.onEndedEvent}
               onProgress={this.onProgress}
               onDuration={this.onDuration}
               onReady={this.onReady}
               width="100%"
-              height="100%"
+              height="0"
             />
             <button
               className="music-button"

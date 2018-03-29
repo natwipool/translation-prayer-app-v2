@@ -1,10 +1,16 @@
 const defaultStatePlayerReducer = {
+  closePlayer: false,
   isPlaying: false,
   index: 0
 };
 
 export default (state = defaultStatePlayerReducer, action) => {
   switch (action.type) {
+    case 'CLOSE_PLAYER':
+      return {
+        ...state,
+        closePlayer: !state.closePlayer,
+      }
     case 'IS_PLAYING_TOGGLE':
       return {
         ...state,

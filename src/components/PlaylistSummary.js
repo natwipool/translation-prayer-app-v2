@@ -7,7 +7,7 @@ import formatTime from '../utils/format-time';
 export const PlaylistSummary = ({ preceptCount, durationTotal }) => {
   const formattedTime = formatTime(durationTotal)
   return (
-    <div>
+    <div className="page-header__summary-container">
       <p className="page-header__summary">
         บทสวดมนต์ <span>{preceptCount}</span> บท, เวลา <span>{formattedTime}</span> นาที
       </p>

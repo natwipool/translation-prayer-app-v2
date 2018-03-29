@@ -33,7 +33,7 @@ export class MyPlaylistPage extends React.Component {
             <button className="button--secondary del-button" onClick={this.handleShowModal}>ลบ</button>
           </div>
         </div>
-        <MyPlaylistList {...this.props.playlist} />
+        <MyPlaylistList {...this.props.playlist}/>
         <ConfirmModal
           playlist={this.props.playlist}
           showConfirmModal={this.state.showConfirmModal}

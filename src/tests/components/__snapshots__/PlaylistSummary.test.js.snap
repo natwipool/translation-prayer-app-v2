@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render PlaylistSummary with mutiple playlist  1`] = `
-<div>
+<div
+  className="page-header__summary-container"
+>
   <p
     className="page-header__summary"
   >
@@ -19,7 +21,9 @@ exports[`should render PlaylistSummary with mutiple playlist  1`] = `
 `;
 
 exports[`should render PlaylistSummary with one playlist 1`] = `
-<div>
+<div
+  className="page-header__summary-container"
+>
   <p
     className="page-header__summary"
   >

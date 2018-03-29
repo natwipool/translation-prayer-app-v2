@@ -1,9 +1,6 @@
 .form {
   display: flex;
   flex-direction: column;
-  > div {
-    margin-bottom: -1rem;
-  }  
 }
 
 input[type=text] {
@@ -47,13 +44,15 @@ input[type=text] {
 .checkbox-content__title {
   font-size: 1.7rem;
   font-weight: 300;
+  margin-bottom: 0;
 }
 
 .checkbox-content__number {
   font-size: 1.7rem;
   font-weight: 700;
   color: $blue;
-  margin-left: $m-size;
+  margin-left: auto;
+  margin-bottom: 0;
 }
 
 .form-button {
