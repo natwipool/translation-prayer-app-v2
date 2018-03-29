@@ -20,11 +20,16 @@
   }
 }
 
+.group-player-button {
+  width: 34%;
+}
+
 .player-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 65%;
 }
 
 .player-title {

@@ -119,7 +119,7 @@ export class Player extends React.Component {
       <div className="player-container">
         <ProgressBar bsStyle="warning" now={this.state.currentPercent} />
         <div className="player">
-          <div>
+          <div className="group-player-button">
             <ReactPlayer
               ref={this.ref}
               playing={this.props.players.isPlaying}
