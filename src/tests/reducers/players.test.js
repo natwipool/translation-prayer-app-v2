@@ -4,7 +4,8 @@ test('should setup default player reducer value', () => {
   const state = playersReducer(undefined, { type: '@@INIT' });
   expect(state).toEqual({
     isPlaying: false,
-    index: 0
+    index: 0,
+    closePlayer: false
   });
 });
 
@@ -61,6 +62,7 @@ test('should set index', () => {
   const state = playersReducer(undefined, { type: 'SET_INDEX', index });
   expect(state).toEqual({
     isPlaying: false,
-    index: 21
+    index: 21,
+    closePlayer: false
   });
 });

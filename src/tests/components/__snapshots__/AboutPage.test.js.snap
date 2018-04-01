@@ -26,10 +26,31 @@ exports[`should render AboutPage correctly 1`] = `
       className="text-container"
     >
       <h4>
+        ติดต่อสอบถามได้ที่
+      </h4>
+      <p>
+        Facebook Page
+         
+        <a
+          href="https://web.facebook.com/สวดมนต์-2068899220053295/"
+        >
+          สวดมนต์
+        </a>
+      </p>
+      <p>
+        Email 
+        <a
+          href="mailto:natwipool@gmail.com"
+        >
+          natwipool@gmail.com
+        </a>
+      </p>
+      <br />
+      <h4>
         ขอขอบคุณ
       </h4>
       <p>
-        ข้อมูลและไฟล์เสียงบทสวดมนต์จาก
+        ข้อมูลจาก
          
         <a
           href="http://wimutti.org/"
@@ -76,27 +97,6 @@ exports[`should render AboutPage correctly 1`] = `
           title="Creative Commons BY 3.0"
         >
           CC 3.0 BY
-        </a>
-      </p>
-      <br />
-      <h4>
-        ติดต่อสอบถามได้ที่
-      </h4>
-      <p>
-        Facebook Page
-         
-        <a
-          href="https://web.facebook.com/สวดมนต์-2068899220053295/"
-        >
-          สวดมนต์
-        </a>
-      </p>
-      <p>
-        Email 
-        <a
-          href="mailto:natwipool@gmail.com"
-        >
-          natwipool@gmail.com
         </a>
       </p>
     </div>
