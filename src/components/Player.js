@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ReactPlayer from 'react-player';
+import  isSafari from 'is-safari';
 import { ProgressBar } from 'react-bootstrap';
 import currentPercent from '../utils/current-time-to-percent';
 import {
@@ -11,9 +12,6 @@ import {
   setIndex
 } from '../actions/players';
 import formatTime from '../utils/format-time';
-import { detect } from 'detect-browser';
-
-const browser = detect();
 
 export class Player extends React.Component {
   constructor(props) {
@@ -26,12 +24,12 @@ export class Player extends React.Component {
       currentPercent: undefined
     };
 
-    if (browser.name !== 'safari') {
+    if (!isSafari) {
       this.playlists = this.props.playlists.map(({ filename, precept }) => ({
         exe: `https://s3-ap-southeast-1.amazonaws.com/transprayer/ogg/${filename}.ogg`,
         precept
       }));
-    } else {
+    } else if (isSafari) {
       this.playlists = this.props.playlists.map(({ filename, precept }) => ({
         exe: `https://s3-ap-southeast-1.amazonaws.com/transprayer/mp3/${filename}.mp3`,
         precept
@@ -159,7 +157,7 @@ export class Player extends React.Component {
                 {this.playlists[this.props.players.index].precept}
               </h3>
             ) : (
-              <h3 className="player-title">Loading...</h3>
+              <h3 className="player-loading">กำลังโหลด...</h3>
             )}
             <p className="player-timer">
               {this.state.currentTime !== undefined && this.state.isReady

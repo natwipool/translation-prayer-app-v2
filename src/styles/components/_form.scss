@@ -48,11 +48,16 @@ input[type=text] {
 }
 
 .checkbox-content__number {
-  font-size: 1.7rem;
-  font-weight: 700;
-  color: $blue;
+  background: $blue;
+  font-size: $m-size;
+  color: white;
   margin-left: auto;
   margin-bottom: 0;
+  height: 24px;
+  width: 24px;
+  display: table-cell;
+  text-align: center;
+  border-radius: 50%;
 }
 
 .form-button {
