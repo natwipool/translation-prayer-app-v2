@@ -24,17 +24,22 @@ export class Player extends React.Component {
       currentPercent: undefined
     };
 
-    if (!isSafari) {
-      this.playlists = this.props.playlists.map(({ filename, precept }) => ({
-        exe: `https://s3-ap-southeast-1.amazonaws.com/transprayer/ogg/${filename}.ogg`,
-        precept
-      }));
-    } else if (isSafari) {
-      this.playlists = this.props.playlists.map(({ filename, precept }) => ({
-        exe: `https://s3-ap-southeast-1.amazonaws.com/transprayer/mp3/${filename}.mp3`,
-        precept
-      }));
-    }
+    this.playlists = this.props.playlists.map(({ filename, precept }) => ({
+      exe: `https://s3-ap-southeast-1.amazonaws.com/transprayer/ogg/${filename}.ogg`,
+      precept
+    }));
+
+    // if (!isSafari) {
+    //   this.playlists = this.props.playlists.map(({ filename, precept }) => ({
+    //     exe: `https://s3-ap-southeast-1.amazonaws.com/transprayer/ogg/${filename}.ogg`,
+    //     precept
+    //   }));
+    // } else if (isSafari) {
+    //   this.playlists = this.props.playlists.map(({ filename, precept }) => ({
+    //     exe: `https://s3-ap-southeast-1.amazonaws.com/transprayer/mp3/${filename}.mp3`,
+    //     precept
+    //   }));
+    // }
 
   }
 
@@ -53,19 +58,19 @@ export class Player extends React.Component {
       this.setState(() => ({ isReady: false }));
     }
 
-    if (this.props.playlists.length !== nextProps.playlists.length) {
-      if (!isSafari) {
-        this.playlists = nextProps.playlists.map(({ filename, precept }) => ({
-          exe: `https://s3-ap-southeast-1.amazonaws.com/transprayer/ogg/${filename}.ogg`,
-          precept
-        }));
-      } else if (isSafari) {
-        this.playlists = nextProps.playlists.map(({ filename, precept }) => ({
-          exe: `https://s3-ap-southeast-1.amazonaws.com/transprayer/mp3/${filename}.mp3`,
-          precept
-        }));
-      }
-    }
+    // if (this.props.playlists.length !== nextProps.playlists.length) {
+    //   if (!isSafari) {
+    //     this.playlists = nextProps.playlists.map(({ filename, precept }) => ({
+    //       exe: `https://s3-ap-southeast-1.amazonaws.com/transprayer/ogg/${filename}.ogg`,
+    //       precept
+    //     }));
+    //   } else if (isSafari) {
+    //     this.playlists = nextProps.playlists.map(({ filename, precept }) => ({
+    //       exe: `https://s3-ap-southeast-1.amazonaws.com/transprayer/mp3/${filename}.mp3`,
+    //       precept
+    //     }));
+    //   }
+    // }
 
   }
 
