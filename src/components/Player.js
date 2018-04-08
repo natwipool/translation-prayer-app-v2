@@ -54,12 +54,12 @@ export class Player extends React.Component {
     }
 
     if (this.props.playlists.length !== nextProps.playlists.length) {
-      if (browser.name !== 'safari') {
+      if (!isSafari) {
         this.playlists = nextProps.playlists.map(({ filename, precept }) => ({
           exe: `https://s3-ap-southeast-1.amazonaws.com/transprayer/ogg/${filename}.ogg`,
           precept
         }));
-      } else {
+      } else if (isSafari) {
         this.playlists = nextProps.playlists.map(({ filename, precept }) => ({
           exe: `https://s3-ap-southeast-1.amazonaws.com/transprayer/mp3/${filename}.mp3`,
           precept
