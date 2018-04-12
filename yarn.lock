@@ -1992,10 +1992,6 @@ destroy@~1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/destroy/-/destroy-1.0.4.tgz#978857442c44749e4206613e37946205826abd80"
 
-detect-browser@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/detect-browser/-/detect-browser-2.2.0.tgz#a9b2502b30f07de7fab98934a2ce24535d33a9cd"
-
 detect-indent@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/detect-indent/-/detect-indent-4.0.0.tgz#f76d064352cdf43a1cb6ce619c4ee3a9475de208"
@@ -3098,6 +3094,10 @@ home-or-tmp@^2.0.0:
 hosted-git-info@^2.1.4:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.5.0.tgz#6d60e34b3abbc8313062c3b798ef8d901a07af3c"
+
+howler@2.0.9:
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/howler/-/howler-2.0.9.tgz#74f08191f857e26dc8a5dc6cba195bd1cdd97e5d"
 
 hpack.js@^2.1.6:
   version "2.1.6"
@@ -5519,6 +5519,13 @@ react-dom@^16.2.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
+react-howler@^3.7.2:
+  version "3.7.2"
+  resolved "https://registry.yarnpkg.com/react-howler/-/react-howler-3.7.2.tgz#4fdb5036ebc76b970fa539581c29650a038f15c2"
+  dependencies:
+    howler "2.0.9"
+    prop-types "^15.5.6"
+
 react-modal@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/react-modal/-/react-modal-3.3.2.tgz#b13da9490653a7c76bc0e9600323eb1079c620e7"
@@ -5620,9 +5627,9 @@ react-transition-group@^2.0.0, react-transition-group@^2.2.0:
     prop-types "^15.5.8"
     warning "^3.0.0"
 
-react@^16.2.0:
-  version "16.2.0"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.2.0.tgz#a31bd2dab89bff65d42134fa187f24d054c273ba"
+react@^16.3.1:
+  version "16.3.1"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.3.1.tgz#4a2da433d471251c69b6033ada30e2ed1202cfd8"
   dependencies:
     fbjs "^0.8.16"
     loose-envify "^1.1.0"

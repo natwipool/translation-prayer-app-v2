@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ReactPlayer from 'react-player';
-import  isSafari from 'is-safari';
+import raf from 'raf';
+import ReactHowler from 'react-howler';
+import isSafari from 'is-safari';
 import { ProgressBar } from 'react-bootstrap';
 import currentPercent from '../utils/current-time-to-percent';
 import {
@@ -18,29 +19,20 @@ export class Player extends React.Component {
     super(props);
 
     this.state = {
+      loaded: false,
       duration: undefined,
-      currentTime: undefined,
-      isReady: false,
-      currentPercent: undefined
+      seek: 0,
+      currentPercent: 0
     };
 
-    this.playlists = this.props.playlists.map(({ filename, precept }) => ({
-      exe: `https://s3-ap-southeast-1.amazonaws.com/transprayer/ogg/${filename}.ogg`,
-      precept
-    }));
-
-    // if (!isSafari) {
-    //   this.playlists = this.props.playlists.map(({ filename, precept }) => ({
-    //     exe: `https://s3-ap-southeast-1.amazonaws.com/transprayer/ogg/${filename}.ogg`,
-    //     precept
-    //   }));
-    // } else if (isSafari) {
-    //   this.playlists = this.props.playlists.map(({ filename, precept }) => ({
-    //     exe: `https://s3-ap-southeast-1.amazonaws.com/transprayer/mp3/${filename}.mp3`,
-    //     precept
-    //   }));
-    // }
-
+    this.playlists = this.props.playlists.map(
+      ({ filename, precept, duration }) => ({
+        ogg: `https://s3-ap-southeast-1.amazonaws.com/transprayer/ogg/${filename}.ogg`,
+        mp3: `https://s3-ap-southeast-1.amazonaws.com/transprayer/mp3/${filename}.mp3`,
+        precept,
+        duration
+      })
+    );
   }
 
   componentWillMount() {
@@ -48,42 +40,34 @@ export class Player extends React.Component {
   }
 
   componentWillUnmount() {
-    this.setState(() => ({ isReady: false }));
+    this.clearRAF();
     this.props.setIndex();
-    this.props.setPlaying();
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (this.props.players.index !== nextProps.players.index) {
-      this.setState(() => ({ isReady: false }));
-    }
-
-    // if (this.props.playlists.length !== nextProps.playlists.length) {
-    //   if (!isSafari) {
-    //     this.playlists = nextProps.playlists.map(({ filename, precept }) => ({
-    //       exe: `https://s3-ap-southeast-1.amazonaws.com/transprayer/ogg/${filename}.ogg`,
-    //       precept
-    //     }));
-    //   } else if (isSafari) {
-    //     this.playlists = nextProps.playlists.map(({ filename, precept }) => ({
-    //       exe: `https://s3-ap-southeast-1.amazonaws.com/transprayer/mp3/${filename}.mp3`,
-    //       precept
-    //     }));
-    //   }
-    // }
-
+    this.props.setPlaying(false);
   }
 
   isPlayingToggle = () => {
     this.props.isPlayingToggle();
   };
 
+  onPrevClick = () => {
+    this.clearRAF();
+    this.props.decrementIndex();
+  };
+
   onNextClick = () => {
+    this.clearRAF();
     this.props.incrementIndex();
   };
 
-  onPrevClick = () => {
-    this.props.decrementIndex();
+  handleOnPlay = () => {
+    this.renderSeekPos();
+  };
+
+  handleOnLoad = () => {
+    this.setState({
+      loaded: true,
+      duration: this.player.duration()
+    });
   };
 
   onEndedEvent = () => {
@@ -94,27 +78,23 @@ export class Player extends React.Component {
       this.props.incrementIndex();
       if (!this.props.players.isPlaying) {
         this.props.setPlaying(true);
-      }  
+      }
     }
   };
 
-  onReady = () => {
-    this.setState(() => ({ isReady: true }));
+  renderSeekPos = () => {
+    this.setState({
+      seek: this.player.seek(),
+      currentPercent: currentPercent(this.state.seek, this.state.duration)
+    });
+
+    if (this.props.players.isPlaying) {
+      this._raf = raf(this.renderSeekPos);
+    }
   };
 
-  onProgress = state => {
-    this.setState(() => ({
-      currentTime: state.playedSeconds,
-      currentPercent: currentPercent(this.state.currentTime, this.state.duration)
-    }));
-  };
-
-  onDuration = duration => {
-    this.setState(() => ({ duration }));
-  };
-
-  ref = player => {
-    this.player = player;
+  clearRAF = () => {
+    raf.cancel(this._raf);
   };
 
   render() {
@@ -123,16 +103,17 @@ export class Player extends React.Component {
         <ProgressBar bsStyle="warning" now={this.state.currentPercent} />
         <div className="player">
           <div className="group-player-button">
-            <ReactPlayer
-              ref={this.ref}
+            <ReactHowler
+              src={[
+                this.playlists[this.props.players.index].ogg,
+                this.playlists[this.props.players.index].mp3
+              ]}
               playing={this.props.players.isPlaying}
-              url={this.playlists[this.props.players.index].exe}
-              onEnded={this.onEndedEvent}
-              onProgress={this.onProgress}
-              onDuration={this.onDuration}
-              onReady={this.onReady}
-              width="100%"
-              height="0"
+              onPlay={this.handleOnPlay}
+              onLoad={this.handleOnLoad}
+              onEnd={this.onEndedEvent}
+              html5={true}
+              ref={ref => (this.player = ref)}
             />
             <button
               className="music-button"
@@ -157,7 +138,7 @@ export class Player extends React.Component {
             </button>
           </div>
           <div className="player-content">
-            {this.playlists && this.state.isReady ? (
+            {this.playlists ? (
               <h3 className="player-title">
                 {this.playlists[this.props.players.index].precept}
               </h3>
@@ -165,12 +146,10 @@ export class Player extends React.Component {
               <h3 className="player-loading">กำลังโหลด...</h3>
             )}
             <p className="player-timer">
-              {this.state.currentTime !== undefined && this.state.isReady
-                ? formatTime(this.state.currentTime)
-                : '0.00'}
+              {this.state.loaded ? formatTime(this.state.seek) : '0.00'}
               {' / '}
-              {this.state.duration && this.state.isReady
-                ? formatTime(this.state.duration)
+              {this.state.loaded
+                ? formatTime(this.playlists[this.props.players.index].duration)
                 : '0.00'}
             </p>
           </div>
